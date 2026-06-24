@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { CASES, DESTINATIONS, FAQS, SITE } from '@/data/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Viajes personalizados a Europa y todo el mundo',
+  provider: {
+    '@type': ['TravelAgency', 'Organization'],
+    name: SITE.name,
+    url: SITE.url,
+    email: SITE.email,
+    telephone: SITE.whatsapp,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Agencia de Viajes Online',
+      postalCode: '08027',
+      addressLocality: 'Barcelona',
+      addressRegion: 'Barcelona',
+      addressCountry: 'ES'
+    }
+  },
+  areaServed: ['España', 'Europa']
+};
+---
+
+<BaseLayout
+  title="Viajes personalizados a Europa y todo el mundo desde España y Europa | Routsify"
+  description="Viajes a medida desde España y Europa para escapadas, rutas largas, viajes de pareja, familias y experiencias internacionales personalizadas."
+  canonical="/europa/"
+  alternates={[
+    { hreflang: 'x-default', href: `${SITE.url}/` },
+    { hreflang: 'es-419', href: `${SITE.url}/latam/` },
+    { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
+  ]}
+  jsonLd={jsonLd}
+>
+  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
+    <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="flow">
+        <p class="eyebrow">Landing para España y Europa</p>
+        <div class="kicker inline-flex rounded-full px-4 py-2 text-sm font-semibold">
+          Especializados en Europa, Marruecos y Egipto
+        </div>
+        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+          Viajes personalizados a Europa y todo el mundo.
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+          Si vives en España o en cualquier país de Europa, diseñamos tu próximo viaje a medida dentro o fuera del continente. Hacemos que una escapada, un viaje largo, una luna de miel o una ruta en familia se sientan bien pensados desde el principio.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Hablar por WhatsApp</a>
+          <a href="/ruta-personalizada/" class="btn-secondary">Ver servicio</a>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-[2rem] p-6 shadow-glow">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="soft-card rounded-[1.5rem] p-5 sm:col-span-2">
+            <p class="eyebrow">Lo que buscas ahorrar</p>
+            <h2 class="mt-3 text-2xl text-white">Tiempo, dudas y malas decisiones de ruta</h2>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              {['Escapadas', 'Viajes largos', 'Parejas', 'Familias', 'Grupos', 'Experiencias a medida'].map((item) => (
+                <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/72">{item}</span>
+              ))}
+            </div>
+          </article>
+          <article class="soft-card rounded-[1.35rem] p-5">
+            <p class="text-sm text-white/45">01</p>
+            <p class="mt-2 text-xl text-white">Diseño experto</p>
+          </article>
+          <article class="soft-card rounded-[1.35rem] p-5">
+            <p class="text-sm text-white/45">02</p>
+            <p class="mt-2 text-xl text-white">Viajes diferentes</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="Qué cambia aquí"
+      title="La landing habla de comodidad, ahorro de tiempo y diseño experto"
+      copy="No necesitas explicarle al cliente europeo que le llevas “desde Latinoamérica”. Lo que necesita oír es que su próximo viaje se va a construir bien."
+    />
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {[
+        ['Escapadas y city breaks', 'Propuestas ágiles y bien resueltas para aprovechar pocos días sin caer en lo genérico.'],
+        ['Viajes largos', 'Cuando hay tiempo, el itinerario se construye para que cada etapa tenga sentido y no se convierta en un collage sin lógica.'],
+        ['Parejas y familias', 'Rutas con equilibrio entre ritmo, descanso, experiencias y momentos memorables.'],
+        ['Múltiples destinos', 'Europa combinada con Marruecos o Egipto cuando el viaje lo pide.'],
+        ['Presupuesto optimizado', 'Proponemos la mejor forma de usar el dinero sin sacrificar el valor del viaje.'],
+        ['Experiencia premium', 'Un servicio serio, cercano y elegante, sin hablar como una agencia clásica de catálogo.']
+      ].map(([title, copy]) => (
+        <article class="soft-card rounded-[1.5rem] p-6">
+          <h3 class="text-2xl text-white">{title}</h3>
+          <p class="mt-3 text-sm leading-7 text-white/64">{copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="glass rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="Destinos clave"
+          title="Europa, Marruecos y Egipto siguen siendo el corazón de la propuesta"
+          copy="Y a partir de ahí puedes abrir la puerta a más destinos internacionales."
+        />
+        <div class="mt-8 space-y-4">
+          {DESTINATIONS.map((item) => (
+            <article class="rounded-[1.4rem] border border-white/10 bg-white/5 p-5">
+              <h3 class="text-xl text-white">{item.name}</h3>
+              <p class="mt-2 text-sm leading-7 text-white/64">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <article class="soft-card rounded-[2rem] p-7">
+          <p class="eyebrow">Casos tipo</p>
+          <div class="mt-5 grid gap-4">
+            {CASES.map((item) => (
+              <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-4">
+                <h3 class="text-xl text-white">{item.title}</h3>
+                <p class="mt-2 text-sm leading-7 text-white/64">{item.summary}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="soft-card rounded-[2rem] p-7">
+          <p class="eyebrow">Mensaje clave</p>
+          <h3 class="mt-3 text-3xl text-white">Diseñamos tu próximo viaje, no solo una lista de reservas</h3>
+          <p class="mt-3 text-sm leading-7 text-white/64">
+            El valor diferencial está en la ruta: orden, lógica, belleza y la sensación de que el viaje fue pensado para ti, no tomado de un catálogo.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+      <div class="soft-card rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="Preguntas frecuentes"
+          title="Las dudas habituales también se responden aquí"
+          copy="Una landing que resuelve objeciones convierte mejor que una landing bonita pero vacía."
+        />
+        <div class="mt-8 space-y-3">
+          {FAQS.map((item) => (
+            <details class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
+              <summary class="cursor-pointer text-lg text-white">{item.q}</summary>
+              <p class="mt-3 text-sm leading-7 text-white/64">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+      <div class="glass rounded-[2rem] p-8">
+        <p class="eyebrow">CTA final</p>
+        <h2 class="mt-3 text-4xl text-white">Cuéntanos el viaje que tienes en mente y lo aterrizamos contigo</h2>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Si vives en España o en Europa, la conversación se centra en ritmo, tiempos, destinos combinados, escapadas, viajes largos o experiencias más especiales.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Pedir propuesta por WhatsApp</a>
+          <a href="/guias/" class="btn-secondary">Ver guías económicas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

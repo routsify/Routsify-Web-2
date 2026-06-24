@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { LEGAL } from '@/data/legal';
+import { SITE } from '@/data/site';
+---
+
+<BaseLayout
+  title="Privacidad | Routsify"
+  description="Política de privacidad de Routsify con datos de contacto, finalidades, derechos y tratamiento del formulario Fillout."
+  canonical="/privacidad/"
+  noindex
+>
+  <section class="section-tight pt-12 sm:pt-16">
+    <div class="glass rounded-[2rem] p-8 lg:p-10">
+      <p class="eyebrow">Privacidad</p>
+      <h1 class="mt-3 max-w-3xl text-4xl text-white sm:text-5xl">Cómo tratamos tus datos</h1>
+      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
+        Si nos escribes por el formulario embebido de {LEGAL.formProvider} o por WhatsApp, solo trataremos los datos necesarios para responderte, preparar tu propuesta o gestionar una contratación.
+      </p>
+      <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Responsable</p>
+          <p class="mt-3 text-lg text-white">{LEGAL.ownerName}</p>
+          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.commercialName}</p>
+        </article>
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Contacto</p>
+          <p class="mt-3 text-lg text-white"><a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a></p>
+          <p class="mt-2 text-sm leading-7 text-white/64"><a class="underline decoration-white/20 underline-offset-4" href={SITE.whatsappUrl}>{LEGAL.phone}</a></p>
+        </article>
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Domicilio</p>
+          <p class="mt-3 text-lg text-white">Barcelona</p>
+          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.address}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">1. Qué datos recogemos</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>Datos identificativos y de contacto: nombre, email, teléfono y país de origen.</li>
+          <li>Datos que nos das al explicar tu viaje: destino, fechas, presupuesto, preferencias y necesidades.</li>
+          <li>Datos de contratación y facturación si llegas a reservar un servicio.</li>
+          <li>Datos técnicos y de navegación mínimos para que la web funcione correctamente.</li>
+        </ul>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">2. Cómo llegan</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>Formulario embebido de {LEGAL.formProvider}.</li>
+          <li>WhatsApp, para consultas rápidas o seguimiento de una solicitud.</li>
+          <li>Email, cuando lo usas para pedir información o enviar documentación.</li>
+          <li>Durante el proceso de contratación o atención postventa, cuando corresponda.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+      <article class="glass rounded-[2rem] p-8">
+        <p class="eyebrow">3. Para qué los usamos</p>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          {[
+            'Responder consultas y preparar presupuestos.',
+            'Gestionar reservas, pagos y documentación.',
+            'Atender obligaciones legales, fiscales y de facturación.',
+            'Enviar comunicaciones comerciales solo si lo autorizas.',
+            'Mejorar la seguridad y el funcionamiento técnico del sitio.'
+          ].map((item) => (
+            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-white/72">{item}</div>
+          ))}
+        </div>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">4. Base legal</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>Ejecución de contrato y medidas precontractuales.</li>
+          <li>Consentimiento cuando te suscribes o nos autorizas a usar ciertos datos.</li>
+          <li>Cumplimiento de obligaciones legales y fiscales.</li>
+          <li>Interés legítimo en seguridad, prevención de fraude y funcionamiento técnico.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">5. Con quién compartimos datos</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>Proveedor tecnológico del formulario, {LEGAL.formProvider}, para canalizar la solicitud.</li>
+          <li>WhatsApp/Meta, cuando eliges contactarnos por ese canal.</li>
+          <li>Proveedores turísticos y de transporte si hay una contratación.</li>
+          <li>Pasarelas de pago, hosting, correo y herramientas técnicas necesarias.</li>
+          <li>Administraciones públicas, si la ley nos obliga.</li>
+        </ul>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">6. Transferencias y conservación</p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          En algunos casos, tus datos pueden viajar fuera del Espacio Económico Europeo porque parte de la cadena de viaje o del soporte técnico está fuera de la UE. Solo lo hacemos cuando es necesario para prestar el servicio o con garantías adecuadas.
+        </p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Conservamos los datos mientras dure la relación, durante los plazos legales de facturación o mientras sea necesario para atender posibles responsabilidades.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="glass rounded-[2rem] p-8">
+      <p class="eyebrow">7. Tus derechos</p>
+      <h2 class="mt-3 text-3xl text-white">Qué puedes pedirnos</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {['Acceso', 'Rectificación', 'Supresión', 'Oposición', 'Limitación', 'Portabilidad'].map((item) => (
+          <div class="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-white/72">{item}</div>
+        ))}
+      </div>
+      <p class="mt-6 max-w-3xl text-sm leading-7 text-white/68">
+        Puedes ejercerlos escribiendo a <a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. Si crees que no hemos atendido bien tu solicitud, también puedes reclamar ante la Agencia Española de Protección de Datos.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

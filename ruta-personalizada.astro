@@ -1,0 +1,187 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { PRICE, SITE } from '@/data/site';
+
+const routePrice = PRICE.personalizedRoutePerDay.toFixed(2).replace('.', ',');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Ruta personalizada Routsify',
+  brand: { '@type': 'Brand', name: SITE.name },
+  seller: {
+    '@type': ['TravelAgency', 'Organization'],
+    name: SITE.name,
+    url: SITE.url,
+    email: SITE.email,
+    telephone: SITE.whatsapp,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Agencia de Viajes Online',
+      postalCode: '08027',
+      addressLocality: 'Barcelona',
+      addressRegion: 'Barcelona',
+      addressCountry: 'ES'
+    }
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    price: PRICE.personalizedRoutePerDay,
+    availability: 'https://schema.org/InStock'
+  }
+};
+---
+
+<BaseLayout
+  title="Ruta personalizada | Routsify"
+  description="Explicamos qué incluye una ruta personalizada, cómo funciona, el precio por día de ruta, ejemplos, preguntas frecuentes y CTA."
+  canonical="/ruta-personalizada/"
+  alternates={[
+    { hreflang: 'x-default', href: `${SITE.url}/` },
+    { hreflang: 'es-419', href: `${SITE.url}/latam/` },
+    { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
+  ]}
+  jsonLd={jsonLd}
+>
+  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+      <div class="flow">
+        <p class="eyebrow">Producto principal</p>
+        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+          Ruta personalizada pensada para que tu viaje tenga lógica desde el primer día.
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+          Diseñamos una ruta a medida con estructura, criterio y soporte. Tú nos cuentas el contexto y nosotros convertimos eso en un viaje realista, bonito y bien resuelto.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Pedir presupuesto por WhatsApp</a>
+          <a href="/faq/" class="btn-secondary">Resolver dudas</a>
+        </div>
+      </div>
+
+      <aside class="glass-strong rounded-[2rem] p-7 shadow-glow">
+        <p class="eyebrow">Precio editable</p>
+        <div class="mt-4 flex items-end gap-3">
+          <span class="text-6xl text-white">{routePrice} €</span>
+          <span class="pb-2 text-sm text-white/60">{PRICE.personalizedRouteLabel}</span>
+        </div>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Si este precio cambia, actualiza la constante <code class="rounded bg-white/10 px-1.5 py-0.5 text-xs">{`PRICE.personalizedRoutePerDay`}</code> y el sitio se actualizará en todas las páginas.
+        </p>
+        <div class="mt-6 grid gap-3">
+          {[
+            'Asesoría inicial',
+            'Diseño de la ruta',
+            'Itinerario día a día',
+            'Recomendaciones de reservas',
+            'Soporte antes y durante el viaje'
+          ].map((item) => (
+            <div class="rounded-[1.1rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/72">{item}</div>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="Qué incluye"
+      title="Todo lo que necesitas para que la ruta no dependa de improvisar"
+      copy="La página explica el servicio con una lista clara de entregables y un proceso entendible."
+    />
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {[
+        ['Asesoría inicial', 'Arrancamos entendiendo destino, presupuesto, fechas, tipo de viaje y prioridades reales.'],
+        ['Estructura de viaje', 'Definimos ciudades, noches, traslados y ritmo óptimo para que no haya incoherencias.'],
+        ['Itinerario día a día', 'No solo qué visitar, sino cuándo y con qué lógica encaja cada etapa.'],
+        ['Reservas y recomendaciones', 'Sugerimos dónde reservar, qué merece la pena asegurar y dónde ahorrar.'],
+        ['Mapa y documentos', 'Toda la información concentrada en un espacio digital fácil de usar.'],
+        ['Soporte continuo', 'Antes y durante el viaje para resolver dudas y acompañar la experiencia.']
+      ].map(([title, copy]) => (
+        <article class="soft-card rounded-[1.5rem] p-6">
+          <h3 class="text-2xl text-white">{title}</h3>
+          <p class="mt-3 text-sm leading-7 text-white/64">{copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="soft-card rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="Cómo funciona"
+          title="Un proceso simple, humano y muy claro"
+          copy="Cinco pasos para pasar de la idea difusa a una ruta lista para usar."
+        />
+        <ol class="mt-8 space-y-4">
+          {[
+            'Nos cuentas el viaje que imaginas.',
+            'Aterrizamos la idea con presupuesto y prioridades.',
+            'Diseñamos la ruta y el ritmo.',
+            'Te entregamos el plan y las recomendaciones.',
+            'Te acompañamos con soporte durante el viaje.'
+          ].map((item, index) => (
+            <li class="flex gap-4 rounded-[1.35rem] border border-white/10 bg-white/5 p-4">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white">{index + 1}</span>
+              <p class="text-sm leading-7 text-white/72">{item}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="glass rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="Ejemplos"
+          title="Casos de uso que esta página debe convertir"
+          copy="Viaje de pareja por Italia. Familia por Europa. Ruta multicountry. Primer viaje a Europa desde América."
+        />
+        <div class="mt-8 grid gap-4">
+          {[
+            'Suiza + Italia + Barcelona en una ruta equilibrada.',
+            'Viaje familiar desde Colombia con foco en comodidad y tiempos realistas.',
+            'Escapada de 10 días por Europa con buen uso del presupuesto.',
+            'Viaje a Marruecos o Egipto con soporte de logística y contexto.'
+          ].map((item) => (
+            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 text-sm text-white/72">{item}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+      <div class="glass rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="FAQ"
+          title="Aclaramos lo importante antes de que nos escribas"
+          copy="Los mensajes de esta página reducen fricción y ayudan a cerrar consultas con más intención."
+        />
+        <div class="mt-8 space-y-3">
+          {[
+            ['¿Solo hacéis Europa?', 'No. Europa es el eje principal, pero también diseñamos Marruecos, Egipto y otros destinos.'],
+            ['¿Puedo pedir solo orientación?', 'Sí, pero la ruta personalizada está pensada para entregar algo más profundo y accionable.'],
+            ['¿Qué pasa si mi presupuesto cambia?', 'Ajustamos la ruta para que siga teniendo sentido sin perder calidad.']
+          ].map(([q, a]) => (
+            <details class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
+              <summary class="cursor-pointer text-lg text-white">{q}</summary>
+              <p class="mt-3 text-sm leading-7 text-white/64">{a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+      <div class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">CTA</p>
+        <h2 class="mt-3 text-4xl text-white">Cuéntanos tu idea y la convertimos en ruta</h2>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Este es el producto estrella. Desde aquí el cliente entiende el valor, el proceso y el precio editable sin sensación de fricción.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Solicitar propuesta por WhatsApp</a>
+          <a href="/guias/" class="btn-secondary">Ver opción económica</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

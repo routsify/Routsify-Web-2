@@ -1,0 +1,174 @@
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/fraunces/400.css';
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/700.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #fbfbf8;
+  --bg-soft: #ffffff;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-strong: rgba(255, 255, 255, 0.97);
+  --border: rgba(15, 23, 42, 0.08);
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #4caf50;
+  --accent-2: #8fd67a;
+  --accent-3: #60a5fa;
+  --brand: #4caf50;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(79, 172, 91, 0.14), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(96, 165, 250, 0.1), transparent 22%),
+    radial-gradient(circle at 12% 78%, rgba(255, 194, 102, 0.1), transparent 20%),
+    linear-gradient(180deg, #ffffff 0%, #fcfcfa 38%, #f7faf4 100%);
+  color: var(--text);
+  font-family: 'Manrope', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(76, 175, 80, 0.22);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.site-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 82%);
+  opacity: 0.18;
+  z-index: -1;
+}
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+}
+
+.glass-strong {
+  background: var(--panel-strong);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.12);
+}
+
+.soft-card {
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 247, 0.98)),
+    rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.07);
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.kicker {
+  color: #2f8a33;
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.16);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200;
+  background: linear-gradient(135deg, #57c24a, #35a73d 52%, #57c24a);
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(76, 175, 80, 0.24);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(76, 175, 80, 0.25);
+  background: rgba(76, 175, 80, 0.06);
+}
+
+.section {
+  @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24;
+}
+
+.section-tight {
+  @apply mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 lg:px-8 lg:py-16;
+}
+
+.flow > * + * {
+  margin-top: 1rem;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.gridline {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.shine {
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  background-size: 200% 100%;
+}
+
+[class*='text-white'] {
+  color: var(--text) !important;
+}
+
+[class*='border-white/'] {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
