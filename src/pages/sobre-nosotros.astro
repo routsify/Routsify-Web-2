@@ -1,0 +1,100 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { SITE, VALUES } from '@/data/site';
+---
+
+<BaseLayout
+  title="Sobre Routsify | Viajes personalizados con experiencia, tecnología y cercanía"
+  description="Misión, valores, historia y colaboración con Grupo Star Viajes. La marca se posiciona como un estudio de diseño de viajes."
+  canonical="/sobre-nosotros/"
+  alternates={[
+    { hreflang: 'x-default', href: `${SITE.url}/` },
+    { hreflang: 'es-419', href: `${SITE.url}/latam/` },
+    { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
+  ]}
+>
+  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+      <div class="flow">
+        <p class="eyebrow">Marca</p>
+        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+          Routsify es una agencia de viajes personalizados con mentalidad de estudio.
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+          Combinamos experiencia, tecnología y personalización para que cada viaje se sienta único, claro y bien resuelto desde el primer contacto.
+        </p>
+      </div>
+      <div class="glass-strong rounded-[2rem] p-7 shadow-glow">
+        <p class="eyebrow">Colaboración</p>
+        <h2 class="mt-3 text-3xl text-white">Grupo Star Viajes</h2>
+        <p class="mt-3 text-sm leading-7 text-white/68">
+          Routsify colabora con Grupo Star Viajes, grupo de gestión de agencias con más de 35 años de experiencia, para reforzar el respaldo operativo y la trayectoria comercial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="Misión"
+      title="Hacer que viajar a medida sea más humano, más claro y más fácil de comprar"
+      copy="La web comunica confianza sin sonar rígida, y premium sin volverse inaccesible."
+    />
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      <article class="soft-card rounded-[1.5rem] p-6">
+        <h3 class="text-2xl text-white">Experiencia</h3>
+        <p class="mt-3 text-sm leading-7 text-white/64">Cada viaje se construye desde el criterio, no desde el catálogo.</p>
+      </article>
+      <article class="soft-card rounded-[1.5rem] p-6">
+        <h3 class="text-2xl text-white">Tecnología</h3>
+        <p class="mt-3 text-sm leading-7 text-white/64">El sistema digital ayuda a organizar ruta, documentos y soporte sin depender de software pesado.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="Valores"
+      title="La marca se sostiene sobre cuatro ideas simples"
+      copy="Sirven para guiar el copy, el diseño y las decisiones de producto."
+    />
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {VALUES.map((item) => (
+        <article class="soft-card rounded-[1.5rem] p-6">
+          <h3 class="text-2xl text-white">{item.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-white/64">{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="glass rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="Historia"
+          title="La propuesta nace para resolver una fricción muy concreta"
+          copy="La gente quiere viajar bien, pero no siempre quiere construir un viaje sola."
+        />
+        <p class="mt-6 text-sm leading-7 text-white/68">
+          Routsify se presenta como esa capa experta que transforma deseos difusos en rutas bien diseñadas. Desde viajes en familia hasta rutas multicountry, la marca prioriza criterio, soporte y claridad comercial.
+        </p>
+      </div>
+      <div class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">Qué transmitir</p>
+        <div class="mt-5 grid gap-3">
+          {[
+            'Cercanía humana',
+            'Experiencia real',
+            'Diseño premium',
+            'Respaldado por Grupo Star Viajes',
+            'Capacidad de acompañar antes y durante'
+          ].map((item) => (
+            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/72">{item}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
