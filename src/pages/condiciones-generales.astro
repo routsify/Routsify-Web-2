@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { LEGAL } from '@/data/legal';
+import { SITE } from '@/data/site';
+---
+
+<BaseLayout
+  title="Condiciones generales | Routsify"
+  description="Condiciones generales de contratación de Routsify con el proceso de solicitud por Fillout, WhatsApp y email."
+  canonical="/condiciones-generales/"
+  noindex
+>
+  <section class="section-tight pt-12 sm:pt-16">
+    <div class="glass rounded-[2rem] p-8 lg:p-10">
+      <p class="eyebrow">Condiciones generales</p>
+      <h1 class="mt-3 max-w-3xl text-4xl text-white sm:text-5xl">Cómo contratamos y qué puedes esperar</h1>
+      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
+        Estas condiciones se aplican a los servicios turísticos y de asesoría ofrecidos por ROUTSIFY. Las solicitudes pueden llegar a través del formulario embebido de {LEGAL.formProvider}, por WhatsApp o por email.
+      </p>
+      <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Titular</p>
+          <p class="mt-3 text-lg text-white">{LEGAL.ownerName}</p>
+          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.commercialName}</p>
+        </article>
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Registro</p>
+          <p class="mt-3 text-lg text-white">Agencia minorista</p>
+          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.agencyRegistration}</p>
+        </article>
+        <article class="soft-card rounded-[1.35rem] p-5">
+          <p class="eyebrow">Coberturas</p>
+          <p class="mt-3 text-lg text-white">RC y caución</p>
+          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.rcPolicy} · {LEGAL.guaranteePolicy}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">1. Contratación</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>La contratación puede empezar con una solicitud de información o presupuesto.</li>
+          <li>La solicitud puede llegar por {LEGAL.formProvider}, WhatsApp o email.</li>
+          <li>El contrato se entiende cerrado cuando aceptas la propuesta y se confirma el pago o la reserva por escrito.</li>
+          <li>La documentación final se envía por email o por el canal acordado.</li>
+        </ul>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">2. Precios y pagos</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>Los precios se informan en euros salvo indicación en contrario.</li>
+          <li>Pueden existir tasas o importes adicionales del proveedor o del destino.</li>
+          <li>Cuando se habilite, el pago podrá hacerse por tarjeta, transferencia, depósito o fraccionamiento.</li>
+          <li>Si se ofrece financiación, el contrato financiero será con la entidad correspondiente, no con ROUTSIFY.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+      <article class="glass rounded-[2rem] p-8">
+        <p class="eyebrow">3. Desistimiento y cancelaciones</p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          En los servicios turísticos con fecha o periodo de ejecución concreto, el derecho de desistimiento de 14 días no suele aplicar. Las cancelaciones y cambios dependen del tipo de servicio, la tarifa y las condiciones del proveedor.
+        </p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Antes de confirmar cualquier contratación, te mostraremos las condiciones económicas y los posibles gastos asociados.
+        </p>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">4. Responsabilidad</p>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+          <li>En servicios sueltos, ROUTSIFY actúa por regla general como intermediaria.</li>
+          <li>En viajes combinados, se aplicará la normativa turística española y catalana vigente.</li>
+          <li>El viajero debe revisar documentación, visados, vacunas y requisitos de entrada al destino.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">5. Atención y reclamaciones</p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Si tienes dudas o una incidencia, escríbenos a <a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. También puedes usar WhatsApp si prefieres una respuesta más rápida.
+        </p>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Disponemos de hojas oficiales de reclamaciones conforme a la normativa aplicable en Cataluña.
+        </p>
+      </article>
+      <article class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">6. Datos generales</p>
+        <div class="mt-4 space-y-3 text-sm leading-7 text-white/72">
+          <p><span class="text-white">Domicilio:</span> {LEGAL.address}</p>
+          <p><span class="text-white">Email:</span> {LEGAL.email}</p>
+          <p><span class="text-white">Teléfono:</span> {LEGAL.phone}</p>
+          <p><span class="text-white">Seguro RC:</span> {LEGAL.rcPolicy} ({LEGAL.rcCoverage})</p>
+          <p><span class="text-white">Seguro caución:</span> {LEGAL.guaranteePolicy} ({LEGAL.guaranteeCoverage})</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="glass rounded-[2rem] p-8">
+      <p class="eyebrow">7. Cierre</p>
+      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
+        Estas condiciones se rigen por la legislación española y, cuando proceda, por la normativa de consumidores. Si hay cualquier contradicción entre una página comercial y estas condiciones, prevalecerá este documento legal.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
