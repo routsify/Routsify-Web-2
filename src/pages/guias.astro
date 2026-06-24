@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { PRICE, SITE } from '@/data/site';
+---
+
+<BaseLayout
+  title="Guías digitales de viaje desde 2,99 € | Routsify"
+  description="Guías económicas con recomendaciones por destino desde 2,99 €, pensadas para quien quiere organizarse por su cuenta sin empezar de cero."
+  canonical="/guias/"
+  alternates={[
+    { hreflang: 'x-default', href: `${SITE.url}/` },
+    { hreflang: 'es-419', href: `${SITE.url}/latam/` },
+    { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
+  ]}
+>
+  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
+    <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="flow">
+        <p class="eyebrow">Entrada económica</p>
+        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+          Guías digitales de recomendaciones por destino desde {PRICE.guidesFrom.toFixed(2).replace('.', ',')} €.
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+          Una opción accesible para quien quiere organizarse por su cuenta, con una base mejor pensada que empezar desde cero.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Pedir catálogo por WhatsApp</a>
+          <a href="/ruta-personalizada/" class="btn-secondary">Necesito algo más completo</a>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-[2rem] p-7 shadow-glow">
+        <p class="eyebrow">Qué resuelve</p>
+        <div class="mt-4 grid gap-4">
+          {[
+            'Recomendaciones esenciales del destino',
+            'Ahorro de tiempo en la investigación',
+            'Idea clara de qué vale la pena priorizar',
+            'Puerta de entrada para vender después la ruta personalizada'
+          ].map((item) => (
+            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/72">{item}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="Uso comercial"
+      title="La guía funciona como producto de entrada y como opción para usuarios más autosuficientes"
+      copy="No compite con la ruta personalizada. La complementa."
+    />
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {[
+        ['Destinos concretos', 'Guías pensadas por ciudad o país, con un contenido útil y compacto.'],
+        ['Precio bajo', 'Desde 2,99 € como umbral de entrada y prueba de marca.'],
+        ['Menos fricción', 'Ideal para usuarios que todavía no quieren contratar una planificación completa.'],
+        ['Más confianza', 'Quien compra una guía puede acabar entendiendo el valor del servicio principal.'],
+        ['Mantenimiento simple', 'Constantes editables y estructura modular para añadir nuevos destinos.'],
+        ['Venta escalable', 'Producto digital fácil de mantener, sin base de datos ni procesos complejos.']
+      ].map(([title, copy]) => (
+        <article class="soft-card rounded-[1.5rem] p-6">
+          <h3 class="text-2xl text-white">{title}</h3>
+          <p class="mt-3 text-sm leading-7 text-white/64">{copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="soft-card rounded-[2rem] p-8">
+        <p class="eyebrow">Precio visible</p>
+        <div class="mt-4 flex items-end gap-3">
+          <span class="text-6xl text-white">{PRICE.guidesFrom.toFixed(2).replace('.', ',')} €</span>
+          <span class="pb-2 text-sm text-white/60">desde</span>
+        </div>
+        <p class="mt-4 text-sm leading-7 text-white/68">
+          Si cambias el precio, hazlo en <code class="rounded bg-white/10 px-1.5 py-0.5 text-xs">{`PRICE.guidesFrom`}</code>.
+        </p>
+      </div>
+      <div class="glass rounded-[2rem] p-8">
+        <SectionHeading
+          eyebrow="CTA"
+          title="Si no necesitas la ruta completa, empieza por aquí"
+          copy="La guía digital da una entrada más suave al ecosistema de Routsify y permite filtrar mejor la intención."
+        />
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Quiero ver las guías por WhatsApp</a>
+          <a href="/ruta-personalizada/" class="btn-secondary">Prefiero una ruta a medida</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
