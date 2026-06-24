@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import { SITE } from '@/data/site';
+---
+
+<BaseLayout
+  title="Contacto | Routsify"
+  description="Contacto oficial de Routsify con formulario Fillout embebido y WhatsApp como canal principal."
+  canonical="/contacto/"
+  alternates={[
+    { hreflang: 'x-default', href: `${SITE.url}/` },
+    { hreflang: 'es-419', href: `${SITE.url}/latam/` },
+    { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
+  ]}
+>
+  <section class="section-tight pt-8 sm:pt-12 lg:pt-20">
+    <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="flow">
+        <p class="eyebrow">Contacto</p>
+        <h1 class="max-w-3xl text-4xl leading-[0.95] text-white sm:text-5xl lg:text-7xl">
+          Cuéntanos tu viaje y te diremos cuál es la mejor forma de diseñarlo.
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+          Este es el único formulario del sitio. Para cualquier otra consulta, escríbenos directamente por WhatsApp.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">Escribir por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-[2rem] p-7 shadow-glow">
+        <p class="eyebrow">Datos directos</p>
+        <div class="mt-5 space-y-4 text-sm text-white/72">
+          <p><span class="text-white">WhatsApp:</span> <a class="underline decoration-white/20 underline-offset-4" href={SITE.whatsappUrl}>{SITE.whatsapp}</a></p>
+          <p><span class="text-white">Email administrativo:</span> {SITE.email}</p>
+          <p><span class="text-white">Dirección:</span> {SITE.address}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="glass rounded-[2rem] p-4 sm:p-6 lg:p-8">
+      <SectionHeading
+        eyebrow="Formulario Fillout"
+        title="Completa el formulario incrustado y seguimos por WhatsApp"
+        copy="El embed permite mantener el flujo de captación limpio sin depender de un backend propio."
+      />
+      <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10 bg-white">
+        <iframe
+          title="Formulario de contacto Routsify"
+          src="https://routsify.fillout.com/t/itUeh5jZBXus"
+          class="h-[1100px] w-full border-0"
+          loading="lazy"
+          allow="clipboard-read; clipboard-write"
+        ></iframe>
+      </div>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a href={SITE.whatsappUrl} class="btn-primary">O hablar por WhatsApp</a>
+        <span class="text-sm text-white/55">Si el embed no carga, usa el enlace de WhatsApp.</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
