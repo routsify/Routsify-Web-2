@@ -50,6 +50,85 @@ export const LANDING_LINKS = [
   }
 ] as const;
 
+export const HOME_PROMISES = [
+  'Viajes personalizados de principio a fin',
+  'Rutas a medida según fechas, ritmo y presupuesto',
+  'Acompañamiento humano antes y durante el viaje'
+] as const;
+
+export const HOME_MOMENTS = [
+  {
+    title: 'Briefing claro',
+    copy: 'Nos cuentas el viaje que imaginas, el punto de partida y lo que necesitas resolver.'
+  },
+  {
+    title: 'Diseño de ruta',
+    copy: 'Convertimos ese contexto en un plan con lógica, ritmo y prioridades bien ordenadas.'
+  },
+  {
+    title: 'Ajustes finos',
+    copy: 'Ajustamos ciudades, noches, tiempos y recomendaciones hasta que la ruta encaje.'
+  },
+  {
+    title: 'Entrega útil',
+    copy: 'Te llevas un itinerario claro con soporte, mapa y recomendaciones prácticas.'
+  },
+  {
+    title: 'Acompañamiento',
+    copy: 'Seguimos cerca para resolver dudas y mantener el viaje bajo control.'
+  }
+] as const;
+
+export const HOME_INCLUDES = [
+  'Itinerario día a día',
+  'Alojamientos y reservas recomendadas',
+  'Transportes y traslados',
+  'Actividades y experiencias',
+  'Restaurantes y paradas útiles',
+  'Entradas y gestiones que conviene resolver antes',
+  'Mapa, documentos y soporte digital',
+  'Acompañamiento antes y durante el viaje'
+] as const;
+
+export const HOME_COMPARISON = [
+  {
+    label: 'Viajar por tu cuenta',
+    points: [
+      'Más tiempo de investigación',
+      'Más dudas en rutas y conexiones',
+      'Riesgo de decisiones poco eficientes'
+    ]
+  },
+  {
+    label: 'Agencia tradicional',
+    points: [
+      'Más estructura, pero menos personalización',
+      'Paquetes más cerrados',
+      'Menos sensación de plan hecho para ti'
+    ]
+  },
+  {
+    label: 'Routsify',
+    points: [
+      'Viajes personalizados y rutas a medida',
+      'Acompañamiento humano y claro',
+      'Planificación profesional con calma'
+    ]
+  }
+] as const;
+
+export const HOME_TRUST = [
+  'Colaboración con Grupo Star Viajes',
+  'Barcelona como base operativa',
+  'Testimonios reales ya publicados en la web',
+  'Formulario embebido con Fillout y soporte por WhatsApp'
+] as const;
+
+export const HOME_CTAS = {
+  primary: 'Hablar por WhatsApp',
+  secondary: 'Ver ruta personalizada'
+} as const;
+
 export const CORE_BENEFITS = [
   'Experiencia 100% personalizada',
   'Asesoría inicial y acompañamiento durante el viaje',
@@ -70,6 +149,21 @@ export const DESTINATIONS = [
   {
     name: 'Egipto',
     detail: 'Viajes con foco en historia, navegación, traslados y orden del itinerario.'
+  }
+] as const;
+
+export const DESTINATION_LANES = [
+  {
+    title: 'Europa',
+    copy: 'Rutas multicountry, escapadas y viajes largos con lógica y ritmo realista.'
+  },
+  {
+    title: 'Marruecos',
+    copy: 'Circuitos urbanos y desérticos que equilibran cultura, traslados y descanso.'
+  },
+  {
+    title: 'Egipto',
+    copy: 'Viajes con foco en historia, navegación, traslados y orden del itinerario.'
   }
 ] as const;
 
@@ -112,6 +206,13 @@ export const TESTIMONIALS = [
     quote:
       'Gracias por el plan que armaste para nosotros estos 12 días. Súper buenos lugares y conocimos más de lo que en otros viajes habíamos visto.'
   }
+] as const;
+
+export const TRUST_STATEMENTS = [
+  'Viajes personalizados con seguimiento humano',
+  'Contenido y testimonios verificados, sin promesas inventadas',
+  'Barcelona como contexto comercial y operativo',
+  'Formulario Fillout + WhatsApp como vías principales de contacto'
 ] as const;
 
 export const FAQS = [
