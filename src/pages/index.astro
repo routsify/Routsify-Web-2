@@ -2,7 +2,19 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import GeoSuggest from '@/components/GeoSuggest.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
-import { DESTINATIONS, LANDING_LINKS, SITE, CORE_BENEFITS, TESTIMONIALS } from '@/data/site';
+import {
+  DESTINATION_LANES,
+  FAQS,
+  HOME_COMPARISON,
+  HOME_CTAS,
+  HOME_INCLUDES,
+  HOME_MOMENTS,
+  HOME_PROMISES,
+  HOME_TRUST,
+  PRICE,
+  SITE,
+  TESTIMONIALS
+} from '@/data/site';
 
 const jsonLd = [
   {
@@ -47,7 +59,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Routsify | Viajes personalizados a medida"
-  description="Diseñamos viajes personalizados a Europa, Marruecos, Egipto y otros destinos con un enfoque premium, humano y muy claro."
+  description="Organizamos viajes personalizados por Europa, Marruecos y Egipto a medida de tus fechas, presupuesto y forma de viajar."
   canonical="/"
   alternates={[
     { hreflang: 'x-default', href: `${SITE.url}/` },
@@ -56,71 +68,76 @@ const jsonLd = [
   ]}
   jsonLd={jsonLd}
 >
-  <section class="section-tight pt-8 sm:pt-12 lg:pt-20">
-    <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div class="flow">
-        <p class="eyebrow">Travel design studio</p>
-        <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/72">
-          <span class="h-2 w-2 rounded-full bg-[#9fe7d5]"></span>
-          Organizamos tu viaje a Europa, Marruecos y Egipto
+  <section class="section-hero">
+    <div class="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+      <div class="flow" data-reveal>
+        <p class="eyebrow">Viajes personalizados · Barcelona</p>
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+          Empezamos por entender tu viaje
         </div>
-        <h1 class="max-w-3xl text-4xl leading-[0.95] text-white sm:text-5xl lg:text-7xl">
-          Diseñamos tu viaje personalizando hasta el más mínimo detalle.
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(4.2rem,6vw,6.4rem)]">
+          Organizamos tu viaje a Europa, Marruecos y Egipto a medida de tus fechas, presupuesto y forma de viajar.
         </h1>
-        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-          No vendemos paquetes cerrados. Creamos rutas a medida según tu presupuesto, gustos, fechas, requisitos y ritmo de viaje. Te acompañamos antes y durante el viaje para que todo se sienta claro, humano y premium.
+        <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
+          No vendemos paquetes cerrados. Diseñamos rutas a medida para que tu viaje tenga lógica, ritmo y tranquilidad desde el primer paso.
         </p>
         <div class="flex flex-wrap gap-3 pt-2">
-          <a href={SITE.whatsappUrl} class="btn-primary">Hablar por WhatsApp</a>
-          <a href="/guias/" class="btn-secondary">Ver guías desde 2,99 €</a>
+          <a href={SITE.whatsappUrl} class="btn-primary">{HOME_CTAS.primary}</a>
+          <a href="/ruta-personalizada/" class="btn-secondary">{HOME_CTAS.secondary}</a>
         </div>
-        <div class="flex flex-wrap gap-2 pt-4 text-sm text-white/60">
-          {CORE_BENEFITS.map((item) => (
-            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2">{item}</span>
+        <div class="flex flex-wrap gap-2 pt-4">
+          {HOME_PROMISES.map((item) => (
+            <span class="rounded-full border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.8)] px-4 py-2 text-sm text-[color:var(--muted)]">
+              {item}
+            </span>
           ))}
         </div>
       </div>
 
-      <div class="relative">
-        <div class="absolute -left-8 -top-8 h-28 w-28 rounded-full bg-[#9fe7d5]/15 blur-3xl"></div>
-        <div class="absolute -right-6 top-12 h-24 w-24 rounded-full bg-[#f7c36d]/20 blur-3xl"></div>
-        <div class="glass-strong relative overflow-hidden rounded-[2rem] p-5 shadow-glow">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <article class="soft-card rounded-[1.5rem] p-5 sm:col-span-2">
-              <div class="flex items-center justify-between gap-4">
+      <div class="panel-dark relative overflow-hidden rounded-[2rem] p-6 sm:p-8" data-reveal>
+        <div class="absolute inset-0 opacity-40">
+          <div class="absolute left-8 top-8 h-36 w-36 rounded-full bg-[rgba(124,143,99,0.2)] blur-3xl"></div>
+          <div class="absolute right-6 top-20 h-32 w-32 rounded-full bg-[rgba(183,142,77,0.16)] blur-3xl"></div>
+        </div>
+        <div class="relative grid gap-5">
+          <div class="rounded-[1.5rem] border border-white/10 bg-white/6 p-5">
+            <p class="eyebrow text-white/68">Así empieza</p>
+            <h2 class="mt-2 text-2xl text-white">Te escuchamos, ordenamos y acompañamos.</h2>
+            <p class="mt-3 text-sm leading-7 text-white/72">
+              Sin paquetes cerrados, sin improvisación y con la calma de tener a alguien al lado desde el primer mensaje.
+            </p>
+          </div>
+
+          <div class="route-line rounded-[1.5rem] border border-white/10 bg-white/6 p-5">
+            <div class="space-y-5">
+              <div class="route-dot">
                 <div>
-                  <p class="text-xs uppercase tracking-[0.24em] text-white/45">Selector inteligente</p>
-                  <h2 class="mt-2 text-2xl text-white">Elige tu puerta de entrada</h2>
+                  <p class="text-sm uppercase tracking-[0.22em] text-white/45">01 · Primer paso</p>
+                  <p class="mt-2 text-lg text-white">Nos cuentas destino, fechas, presupuesto y cómo te gusta viajar.</p>
                 </div>
-                <span class="rounded-full border border-[#9fe7d5]/25 bg-[#9fe7d5]/10 px-3 py-1 text-xs font-semibold text-[#bdf1e7]">
-                  Indexable
-                </span>
               </div>
-              <p class="mt-3 text-sm leading-7 text-white/68">
-                Dos landings principales para mejorar relevancia, claridad comercial y SEO sin depender de redirecciones agresivas.
-              </p>
-              <div class="mt-5 grid gap-3 sm:grid-cols-2">
-                {LANDING_LINKS.map((item) => (
-                  <a href={item.href} class="rounded-[1.35rem] border border-white/10 bg-white/5 p-4 transition hover:-translate-y-0.5 hover:bg-white/8">
-                    <p class="eyebrow">{item.eyebrow}</p>
-                    <h3 class="mt-2 text-lg text-white">{item.title}</h3>
-                    <p class="mt-2 text-sm leading-6 text-white/60">{item.description}</p>
-                  </a>
-                ))}
+              <div class="route-dot">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-white/45">02 · Ruta</p>
+                  <p class="mt-2 text-lg text-white">Diseñamos un itinerario con lógica, ritmo y prioridades claras.</p>
+                </div>
               </div>
-            </article>
+              <div class="route-dot">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-white/45">03 · Acompañamiento</p>
+                  <p class="mt-2 text-lg text-white">Te llevas un plan útil y seguimos cerca antes y durante el viaje.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            <article class="soft-card rounded-[1.35rem] p-5">
-              <p class="eyebrow">Europa / LatAm</p>
-              <p class="mt-3 text-3xl text-white">Europa, Marruecos y Egipto</p>
-              <p class="mt-2 text-sm leading-7 text-white/62">Los destinos clave que más repiten nuestros clientes, con rutas pensadas para ahorrar tiempo real.</p>
-            </article>
-
-            <article class="soft-card rounded-[1.35rem] p-5">
-              <p class="eyebrow">Soporte</p>
-              <p class="mt-3 text-3xl text-white">Antes y durante el viaje</p>
-              <p class="mt-2 text-sm leading-7 text-white/62">Acompañamiento, mapas, documentos, reservas y contexto para que no viajes con dudas sueltas.</p>
-            </article>
+          <div class="grid gap-3 sm:grid-cols-2" data-stagger>
+            {HOME_TRUST.map((item, index) => (
+              <div class="rounded-[1.3rem] border border-white/10 bg-white/6 p-4 text-sm leading-7 text-white/72" style={`--delay:${index}`}>
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -131,69 +148,63 @@ const jsonLd = [
 
   <section class="section">
     <SectionHeading
-      eyebrow="Lo que cambia"
-      title="Una web para vender mejor sin parecer una agencia tradicional"
-      copy="La experiencia se apoya en claridad, diseño y una estructura que ayuda a cada tipo de usuario a encontrarse rápido con la opción correcta."
+      eyebrow="Cómo empieza"
+      title="Un viaje con Routsify empieza con claridad, ritmo y un plan que sí encaja contigo"
+      copy="Todo lo que ve el usuario responde a una sola idea: convertir un viaje con muchas piezas en una experiencia ordenada y humana."
     />
-    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-      <article class="soft-card rounded-[1.5rem] p-6">
-        <p class="text-sm text-white/45">01</p>
-        <h3 class="mt-3 text-2xl text-white">Claridad de mensaje</h3>
-        <p class="mt-3 text-sm leading-7 text-white/64">Dos landings, dos contextos y una propuesta de valor precisa para no mezclar audiencias.</p>
-      </article>
-      <article class="soft-card rounded-[1.5rem] p-6">
-        <p class="text-sm text-white/45">02</p>
-        <h3 class="mt-3 text-2xl text-white">Conversión suave</h3>
-        <p class="mt-3 text-sm leading-7 text-white/64">CTA constantes, WhatsApp visible, contacto simple y guías de entrada económica.</p>
-      </article>
-      <article class="soft-card rounded-[1.5rem] p-6">
-        <p class="text-sm text-white/45">03</p>
-        <h3 class="mt-3 text-2xl text-white">SEO útil</h3>
-        <p class="mt-3 text-sm leading-7 text-white/64">Arquitectura indexable, hreflang, copy específico y páginas pensadas para intención real de búsqueda.</p>
-      </article>
-      <article class="soft-card rounded-[1.5rem] p-6">
-        <p class="text-sm text-white/45">04</p>
-        <h3 class="mt-3 text-2xl text-white">Mantenimiento barato</h3>
-        <p class="mt-3 text-sm leading-7 text-white/64">Astro + Tailwind, sin CMS de pago, sin base de datos y con constantes editables en un solo sitio.</p>
-      </article>
+    <div class="mt-10 grid gap-4 lg:grid-cols-3" data-stagger>
+      {[
+        ['Viajes personalizados', 'Diseñamos cada viaje según fechas, preferencias, presupuesto y ritmo.'],
+        ['Rutas a medida', 'Construimos itinerarios que ordenan ciudades, noches, traslados y prioridades.'],
+        ['Planificación integral', 'Sumamos recomendaciones útiles para que el viaje esté resuelto antes de salir.']
+      ].map(([title, copy], index) => (
+        <article class="panel-soft lift-hover rounded-[1.6rem] p-6" data-reveal style={`--delay:${index}`}>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">0{index + 1}</p>
+          <h3 class="mt-3 text-2xl text-[color:var(--text)]">{title}</h3>
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{copy}</p>
+        </article>
+      ))}
     </div>
   </section>
 
   <section class="section">
-    <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-      <div class="glass rounded-[2rem] p-8">
+    <div class="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+      <div class="panel rounded-[2rem] p-8" data-reveal>
         <SectionHeading
-          eyebrow="Destinos clave"
-          title="Europa, Marruecos y Egipto como eje comercial"
-          copy="El sitio deja claro qué vendéis y para quién, sin perder amplitud para otros destinos internacionales."
+          eyebrow="Cómo funciona"
+          title="Cinco pasos para pasar de la idea difusa a una ruta clara, útil y lista para usar"
+          copy="La ruta va tomando forma con una conversación simple y un trabajo muy ordenado detrás."
         />
-        <div class="mt-8 space-y-4">
-          {DESTINATIONS.map((item) => (
-            <article class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
-              <h3 class="text-xl text-white">{item.name}</h3>
-              <p class="mt-2 text-sm leading-7 text-white/64">{item.detail}</p>
-            </article>
+        <ol class="mt-8 space-y-4 route-line">
+          {HOME_MOMENTS.map((item, index) => (
+            <li class="route-dot rounded-[1.4rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.7)] px-5 py-4" data-reveal style={`--delay:${index}`}>
+              <p class="text-sm uppercase tracking-[0.2em] text-[color:var(--accent)]">{String(index + 1).padStart(2, '0')}</p>
+              <h3 class="mt-2 text-xl text-[color:var(--text)]">{item.title}</h3>
+              <p class="mt-2 text-sm leading-7 text-[color:var(--muted)]">{item.copy}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-2">
-        <article class="soft-card rounded-[2rem] p-6 sm:col-span-2">
-          <p class="eyebrow">Mapa de valor</p>
-          <h3 class="mt-3 text-3xl text-white">La web se siente como un estudio de diseño de viajes</h3>
-          <p class="mt-3 max-w-2xl text-sm leading-7 text-white/64">
-            Más editorial, más visual y mucho menos “agencia de paquetes”. Usamos mapas, rutas, tickets, timeline y bloques tipo bento para explicar mejor el servicio.
+      <div class="grid gap-4">
+        <article class="panel-strong rounded-[2rem] p-8" data-reveal>
+          <p class="eyebrow">Qué incluye</p>
+          <h3 class="mt-3 text-3xl text-[color:var(--text)]">Todo lo importante para viajar con calma</h3>
+          <div class="mt-6 grid gap-3 sm:grid-cols-2" data-stagger>
+            {HOME_INCLUDES.map((item, index) => (
+              <div class="rounded-[1.2rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] px-4 py-3 text-sm text-[color:var(--muted)]" data-reveal style={`--delay:${index}`}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="panel-soft rounded-[2rem] p-8" data-reveal>
+          <p class="eyebrow">Qué no hacemos</p>
+          <h3 class="mt-3 text-3xl text-[color:var(--text)]">No vendemos paquetes cerrados ni promesas vacías</h3>
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">
+            La experiencia se apoya en criterio, contexto y atención real. El objetivo es que el viaje se sienta diseñado para ti, no sacado de un catálogo.
           </p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-6">
-          <p class="eyebrow">Prueba social</p>
-          <h3 class="mt-3 text-xl text-white">Casos reales, sin inventar métricas</h3>
-          <p class="mt-2 text-sm leading-7 text-white/64">Familias desde Colombia, Chile y México. Parejas. Rutas por Suiza, Italia, Barcelona y combinados por Europa.</p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-6">
-          <p class="eyebrow">Ruta de entrada</p>
-          <h3 class="mt-3 text-xl text-white">Guías desde 2,99 €</h3>
-          <p class="mt-2 text-sm leading-7 text-white/64">Una opción económica para captar usuarios que todavía no quieren una ruta completa.</p>
         </article>
       </div>
     </div>
@@ -201,37 +212,124 @@ const jsonLd = [
 
   <section class="section">
     <SectionHeading
-      eyebrow="Prueba social"
-      title="Testimonios reales, redactados con más claridad y menos ruido"
-      copy="Sin prometer resultados inventados. Solo mostrando el tipo de experiencia que ya está funcionando."
+      eyebrow="Destinos verificados"
+      title="Europa, Marruecos y Egipto sostienen la propuesta comercial principal"
+      copy="Usamos solo los destinos que aparecen de forma consistente en la web actual y en el material de referencia."
     />
-    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-      {TESTIMONIALS.map((item) => (
-        <figure class="soft-card rounded-[1.5rem] p-6">
-          <figcaption class="eyebrow">{item.name}</figcaption>
-          <blockquote class="mt-4 text-sm leading-7 text-white/72">“{item.quote}”</blockquote>
-        </figure>
+    <div class="mt-10 grid gap-4 md:grid-cols-3" data-stagger>
+      {DESTINATION_LANES.map((item, index) => (
+        <article class="panel-soft lift-hover rounded-[1.6rem] p-6" data-reveal style={`--delay:${index}`}>
+          <p class="eyebrow">{item.title}</p>
+          <h3 class="mt-3 text-2xl text-[color:var(--text)]">{item.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.copy}</p>
+        </article>
       ))}
     </div>
   </section>
 
   <section class="section">
-    <div class="glass rounded-[2rem] p-8">
-      <SectionHeading
-        eyebrow="Siguiente paso"
-        title="Empieza por la puerta que más encaje contigo"
-        align="center"
-        copy="Puedes cambiar de landing cuando quieras. No bloqueamos el acceso ni forzamos una redirección agresiva."
-      />
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
-        {LANDING_LINKS.map((item) => (
-          <a href={item.href} class="soft-card rounded-[1.5rem] p-6 transition hover:-translate-y-0.5">
-            <p class="eyebrow">{item.eyebrow}</p>
-            <h3 class="mt-3 text-2xl text-white">{item.title}</h3>
-            <p class="mt-2 text-sm leading-7 text-white/64">{item.description}</p>
-          </a>
-        ))}
+    <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="panel rounded-[2rem] p-8" data-reveal>
+        <SectionHeading
+          eyebrow="Comparativa"
+          title="Viajar solo, con agencia tradicional o con Routsify no se siente igual"
+          copy="La tabla ayuda a entender el valor sin caer en claims exagerados."
+        />
+        <div class="mt-8 overflow-hidden rounded-[1.5rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.72)]">
+          <div class="grid grid-cols-1 divide-y divide-[rgba(35,44,34,0.08)] md:grid-cols-3 md:divide-y-0 md:divide-x">
+            {HOME_COMPARISON.map((item, index) => (
+              <div class="p-6" data-reveal style={`--delay:${index}`}>
+                <p class="eyebrow">{item.label}</p>
+                <ul class="mt-4 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
+                  {item.points.map((point) => (
+                    <li class="flex gap-3">
+                      <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--accent)]"></span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <div class="grid gap-4">
+        <article class="panel-dark rounded-[2rem] p-8" data-reveal>
+          <p class="eyebrow text-white/68">Confianza</p>
+          <h3 class="mt-3 text-3xl text-white">Prueba real, con testimonios publicados</h3>
+          <div class="mt-5 grid gap-3">
+            {HOME_TRUST.map((item) => (
+              <div class="rounded-[1.3rem] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-7 text-white/74">
+                {item}
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="panel-soft rounded-[2rem] p-8" data-reveal>
+          <p class="eyebrow">Testimonios</p>
+          <h3 class="mt-3 text-3xl text-[color:var(--text)]">Testimonios reales ya publicados en la web</h3>
+          <div class="mt-5 grid gap-3">
+            {TESTIMONIALS.slice(0, 2).map((item, index) => (
+              <blockquote class="rounded-[1.3rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.76)] p-4 text-sm leading-7 text-[color:var(--muted)]" data-reveal style={`--delay:${index}`}>
+                <span class="block text-[color:var(--text)]">{item.name}</span>
+                “{item.quote}”
+              </blockquote>
+            ))}
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <article class="panel-strong rounded-[2rem] p-8" data-reveal>
+        <p class="eyebrow">Dos formas de empezar</p>
+        <div class="mt-4 flex flex-wrap items-end gap-x-3 gap-y-1">
+          <span class="text-5xl text-[color:var(--text)] sm:text-6xl">{PRICE.guidesFrom.toFixed(2).replace('.', ',')} €</span>
+          <span class="pb-2 text-sm text-[color:var(--muted)]">guías digitales desde</span>
+        </div>
+        <div class="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
+          <span class="text-5xl text-[color:var(--text)] sm:text-6xl">{PRICE.personalizedRoutePerDay.toFixed(2).replace('.', ',')} €</span>
+          <span class="pb-2 text-sm text-[color:var(--muted)]">ruta personalizada / día</span>
+        </div>
+        <p class="mt-5 text-sm leading-7 text-[color:var(--muted)]">
+          Los importes vienen de constantes del proyecto para no inventar precios ni repetir datos manualmente en cada página.
+        </p>
+      </article>
+
+      <article class="panel rounded-[2rem] p-8" data-reveal>
+        <SectionHeading
+          eyebrow="Siguiente paso"
+          title="Cuéntanos tu viaje y te decimos por dónde empezar"
+          copy="Si ya tienes destino, fechas o presupuesto, la conversación por WhatsApp puede ahorrarte mucho tiempo."
+        />
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={SITE.whatsappUrl} class="btn-primary">{HOME_CTAS.primary}</a>
+          <a href="/contacto/" class="btn-secondary">Ver formulario de contacto</a>
+        </div>
+        <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
+          También puedes usar el formulario embebido de Fillout si prefieres dejar el contexto por escrito.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading
+      eyebrow="FAQ"
+      title="Las preguntas frecuentes también ayudan a cerrar la duda"
+      copy="Las respuestas reducen fricción y dejan más claro el alcance del servicio."
+    />
+    <div class="mt-10 grid gap-3" data-stagger>
+      {FAQS.map((item, index) => (
+        <details class="panel-soft rounded-[1.35rem] px-5 py-4" data-reveal style={`--delay:${index}`}>
+          <summary class="cursor-pointer list-none text-lg text-[color:var(--text)]">{item.q}</summary>
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 </BaseLayout>

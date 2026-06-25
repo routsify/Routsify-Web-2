@@ -25,30 +25,34 @@ const jsonLd = {
   ]}
   jsonLd={jsonLd}
 >
-  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
-    <div class="flow">
+  <section class="section-hero">
+    <div class="flow max-w-4xl" data-reveal>
       <p class="eyebrow">FAQ</p>
-      <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+      <div class="kicker">
+        <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+        Respuestas cortas, útiles y sin rodeos
+      </div>
+      <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.9rem,5.8vw,6rem)]">
         Preguntas frecuentes
       </h1>
-      <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-        Una página pensada para resolver objeciones y consolidar confianza antes del contacto.
+      <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
+        Una página pensada para resolver dudas reales antes del contacto y ayudarte a decidir por dónde empezar.
       </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="glass rounded-[2rem] p-8">
+    <div class="panel rounded-[2rem] p-8">
       <SectionHeading
         eyebrow="Respuestas"
         title="Lo importante, sin rodeos"
-        copy="Estas preguntas están redactadas para reflejar el lenguaje comercial de la nueva web."
+        copy="Estas respuestas se apoyan en el contenido ya verificado del sitio y del XML."
       />
-      <div class="mt-8 space-y-3">
-        {FAQS.map((item) => (
-          <details class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
-            <summary class="cursor-pointer text-lg text-white">{item.q}</summary>
-            <p class="mt-3 text-sm leading-7 text-white/64">{item.a}</p>
+      <div class="mt-8 space-y-3" data-stagger>
+        {FAQS.map((item, index) => (
+          <details class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5" data-reveal style={`--delay:${index}`}>
+            <summary class="cursor-pointer list-none text-lg text-[color:var(--text)]">{item.q}</summary>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.a}</p>
           </details>
         ))}
       </div>

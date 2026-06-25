@@ -2,56 +2,56 @@
 import { NAV, SITE } from '@/data/site';
 ---
 
-<footer class="border-t border-slate-200 bg-white/80">
-  <div class="section-tight grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
-    <div class="space-y-4">
+<footer class="mt-8 border-t border-[rgba(35,44,34,0.08)] bg-[rgba(248,243,235,0.86)] backdrop-blur-xl">
+  <div class="section grid gap-10 lg:grid-cols-[1.4fr_0.8fr_0.8fr]">
+    <div class="space-y-5" data-reveal>
       <div class="flex items-center gap-3">
-        <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(35,44,34,0.08)] bg-white shadow-[0_8px_24px_rgba(35,44,34,0.06)]">
           <img src="/logo.svg" alt={`${SITE.name} logo`} class="h-7 w-7 object-contain" />
         </span>
         <div>
-          <p class="font-semibold text-slate-900">{SITE.name}</p>
-          <p class="text-sm text-slate-500">Viajes personalizados a medida</p>
+          <p class="font-semibold text-[color:var(--text)]">{SITE.name}</p>
+          <p class="text-sm text-[color:var(--muted)]">Viajes personalizados a medida</p>
         </div>
       </div>
-      <p class="max-w-xl text-sm leading-7 text-slate-600">
-        {SITE.slogan} Pensado para clientes que quieren dejar de improvisar y empezar a viajar con una ruta bien construida.
+      <p class="max-w-xl text-sm leading-7 text-[color:var(--muted)]">
+        {SITE.slogan} Pensado para personas que quieren dejar de improvisar y empezar a viajar con una ruta bien construida.
       </p>
-      <div class="flex flex-wrap gap-3 text-sm text-slate-600">
-        <a class="hover:text-slate-900" href={SITE.whatsappUrl}>WhatsApp</a>
-        <span>•</span>
-        <span>Email administrativo: {SITE.email}</span>
-        <span>•</span>
+      <div class="flex flex-wrap gap-3 text-sm text-[color:var(--muted)]">
+        <a class="link-soft" href={SITE.whatsappUrl}>WhatsApp</a>
+        <span aria-hidden="true">•</span>
+        <span>Email: {SITE.email}</span>
+        <span aria-hidden="true">•</span>
         <span>{SITE.address}</span>
       </div>
     </div>
 
-    <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Explora</h2>
-      <ul class="mt-4 space-y-3 text-sm text-slate-600">
+    <div data-reveal>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">Explora</h2>
+      <ul class="mt-4 space-y-3 text-sm text-[color:var(--muted)]">
         {NAV.map((item) => (
           <li>
-            <a href={item.href} class="hover:text-slate-900">{item.label}</a>
+            <a href={item.href} class="link-soft">{item.label}</a>
           </li>
         ))}
       </ul>
     </div>
 
-    <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Legal</h2>
-      <ul class="mt-4 space-y-3 text-sm text-slate-600">
-        <li><a class="hover:text-slate-900" href="/aviso-legal/">Aviso legal</a></li>
-        <li><a class="hover:text-slate-900" href="/privacidad/">Privacidad</a></li>
-        <li><a class="hover:text-slate-900" href="/cookies/">Cookies</a></li>
-        <li><a class="hover:text-slate-900" href="/condiciones-generales/">Condiciones generales</a></li>
+    <div data-reveal>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">Legal</h2>
+      <ul class="mt-4 space-y-3 text-sm text-[color:var(--muted)]">
+        <li><a class="link-soft" href="/aviso-legal/">Aviso legal</a></li>
+        <li><a class="link-soft" href="/privacidad/">Privacidad</a></li>
+        <li><a class="link-soft" href="/cookies/">Cookies</a></li>
+        <li><a class="link-soft" href="/condiciones-generales/">Condiciones generales</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="border-t border-slate-200">
-    <div class="section-tight flex flex-col gap-3 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-      <p>© {new Date().getFullYear()} {SITE.name}. {SITE.legalNote}</p>
-      <p>Diseñado para Cloudflare Pages, Netlify o Vercel sin backend obligatorio.</p>
+  <div class="border-t border-[rgba(35,44,34,0.08)]">
+    <div class="section flex flex-col gap-3 text-sm text-[color:var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+      <p>© {new Date().getFullYear()} {SITE.name}. Contacto principal por WhatsApp y formulario de Fillout.</p>
+      <p>Viajes personalizados con una experiencia clara, cercana y humana.</p>
     </div>
   </div>
 </footer>
