@@ -10,48 +10,59 @@ import { SITE } from '@/data/site';
   canonical="/privacidad/"
   noindex
 >
-  <section class="section-tight pt-12 sm:pt-16">
-    <div class="glass rounded-[2rem] p-8 lg:p-10">
-      <p class="eyebrow">Privacidad</p>
-      <h1 class="mt-3 max-w-3xl text-4xl text-white sm:text-5xl">Cómo tratamos tus datos</h1>
-      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
-        Si nos escribes por el formulario embebido de {LEGAL.formProvider} o por WhatsApp, solo trataremos los datos necesarios para responderte, preparar tu propuesta o gestionar una contratación.
-      </p>
-      <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Responsable</p>
-          <p class="mt-3 text-lg text-white">{LEGAL.ownerName}</p>
-          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.commercialName}</p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Contacto</p>
-          <p class="mt-3 text-lg text-white"><a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a></p>
-          <p class="mt-2 text-sm leading-7 text-white/64"><a class="underline decoration-white/20 underline-offset-4" href={SITE.whatsappUrl}>{LEGAL.phone}</a></p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Domicilio</p>
-          <p class="mt-3 text-lg text-white">Barcelona</p>
-          <p class="mt-2 text-sm leading-7 text-white/64">{LEGAL.address}</p>
-        </article>
+  <section class="section-hero">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+      <div class="flow" data-reveal>
+        <p class="eyebrow">Privacidad</p>
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+          Tratamiento de datos claro y limitado
+        </div>
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.5rem,5vw,5.6rem)]">
+          Cómo tratamos tus datos.
+        </h1>
+        <p class="max-w-3xl text-sm leading-7 text-[color:var(--muted)] sm:text-base">
+          Si nos escribes por el formulario de {LEGAL.formProvider} o por WhatsApp, solo trataremos los datos necesarios para responderte, preparar tu propuesta o gestionar una contratación.
+        </p>
+      </div>
+      <div class="panel-strong rounded-[2rem] p-7" data-reveal>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5 md:col-span-2">
+            <p class="eyebrow">Responsable</p>
+            <p class="mt-3 text-lg text-[color:var(--text)]">{LEGAL.ownerName}</p>
+            <p class="mt-2 text-sm leading-7 text-[color:var(--muted)]">{LEGAL.commercialName}</p>
+          </article>
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+            <p class="eyebrow">Domicilio</p>
+            <p class="mt-3 text-lg text-[color:var(--text)]">Barcelona</p>
+          </article>
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5 md:col-span-2">
+            <p class="eyebrow">Contacto</p>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">
+              <a class="link-soft" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> · <a class="link-soft" href={SITE.whatsappUrl}>{LEGAL.phone}</a>
+            </p>
+            <p class="mt-2 text-sm leading-7 text-[color:var(--muted)]">{LEGAL.address}</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-2">
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">1. Qué datos recogemos</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
           <li>Datos identificativos y de contacto: nombre, email, teléfono y país de origen.</li>
           <li>Datos que nos das al explicar tu viaje: destino, fechas, presupuesto, preferencias y necesidades.</li>
           <li>Datos de contratación y facturación si llegas a reservar un servicio.</li>
           <li>Datos técnicos y de navegación mínimos para que la web funcione correctamente.</li>
         </ul>
       </article>
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">2. Cómo llegan</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
-          <li>Formulario embebido de {LEGAL.formProvider}.</li>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
+          <li>Formulario de {LEGAL.formProvider}.</li>
           <li>WhatsApp, para consultas rápidas o seguimiento de una solicitud.</li>
           <li>Email, cuando lo usas para pedir información o enviar documentación.</li>
           <li>Durante el proceso de contratación o atención postventa, cuando corresponda.</li>
@@ -62,7 +73,7 @@ import { SITE } from '@/data/site';
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-      <article class="glass rounded-[2rem] p-8">
+      <article class="panel rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">3. Para qué los usamos</p>
         <div class="mt-5 grid gap-4 sm:grid-cols-2">
           {[
@@ -72,13 +83,13 @@ import { SITE } from '@/data/site';
             'Enviar comunicaciones comerciales solo si lo autorizas.',
             'Mejorar la seguridad y el funcionamiento técnico del sitio.'
           ].map((item) => (
-            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-white/72">{item}</div>
+            <div class="rounded-[1.2rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-4 text-sm leading-7 text-[color:var(--muted)]">{item}</div>
           ))}
         </div>
       </article>
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">4. Base legal</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
           <li>Ejecución de contrato y medidas precontractuales.</li>
           <li>Consentimiento cuando te suscribes o nos autorizas a usar ciertos datos.</li>
           <li>Cumplimiento de obligaciones legales y fiscales.</li>
@@ -90,22 +101,22 @@ import { SITE } from '@/data/site';
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-2">
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">5. Con quién compartimos datos</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
-          <li>Proveedor tecnológico del formulario, {LEGAL.formProvider}, para canalizar la solicitud.</li>
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
+          <li>Proveedor del formulario, {LEGAL.formProvider}, para canalizar la solicitud.</li>
           <li>WhatsApp/Meta, cuando eliges contactarnos por ese canal.</li>
           <li>Proveedores turísticos y de transporte si hay una contratación.</li>
           <li>Pasarelas de pago, hosting, correo y herramientas técnicas necesarias.</li>
           <li>Administraciones públicas, si la ley nos obliga.</li>
         </ul>
       </article>
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">6. Transferencias y conservación</p>
-        <p class="mt-4 text-sm leading-7 text-white/68">
+        <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
           En algunos casos, tus datos pueden viajar fuera del Espacio Económico Europeo porque parte de la cadena de viaje o del soporte técnico está fuera de la UE. Solo lo hacemos cuando es necesario para prestar el servicio o con garantías adecuadas.
         </p>
-        <p class="mt-4 text-sm leading-7 text-white/68">
+        <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
           Conservamos los datos mientras dure la relación, durante los plazos legales de facturación o mientras sea necesario para atender posibles responsabilidades.
         </p>
       </article>
@@ -113,16 +124,16 @@ import { SITE } from '@/data/site';
   </section>
 
   <section class="section">
-    <div class="glass rounded-[2rem] p-8">
+    <div class="panel rounded-[2rem] p-8" data-reveal>
       <p class="eyebrow">7. Tus derechos</p>
-      <h2 class="mt-3 text-3xl text-white">Qué puedes pedirnos</h2>
+      <h2 class="mt-3 text-3xl text-[color:var(--text)]">Qué puedes pedirnos</h2>
       <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {['Acceso', 'Rectificación', 'Supresión', 'Oposición', 'Limitación', 'Portabilidad'].map((item) => (
-          <div class="rounded-[1.2rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-white/72">{item}</div>
+          <div class="rounded-[1.2rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-4 text-sm leading-7 text-[color:var(--muted)]">{item}</div>
         ))}
       </div>
-      <p class="mt-6 max-w-3xl text-sm leading-7 text-white/68">
-        Puedes ejercerlos escribiendo a <a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. Si crees que no hemos atendido bien tu solicitud, también puedes reclamar ante la Agencia Española de Protección de Datos.
+      <p class="mt-6 max-w-3xl text-sm leading-7 text-[color:var(--muted)]">
+        Puedes ejercerlos escribiendo a <a class="link-soft" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. Si crees que no hemos atendido bien tu solicitud, también puedes reclamar ante la Agencia Española de Protección de Datos.
       </p>
     </div>
   </section>
