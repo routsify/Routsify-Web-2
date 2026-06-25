@@ -10,45 +10,55 @@ import { SITE } from '@/data/site';
   canonical="/cookies/"
   noindex
 >
-  <section class="section-tight pt-12 sm:pt-16">
-    <div class="glass rounded-[2rem] p-8 lg:p-10">
-      <p class="eyebrow">Cookies</p>
-      <h1 class="mt-3 max-w-3xl text-4xl text-white sm:text-5xl">Solo lo necesario, y con el formulario de {LEGAL.formProvider} en mente</h1>
-      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
-        La versión actual del sitio se apoya en cookies técnicas y en las tecnologías necesarias para mostrar el formulario embebido. No cargamos cookies de publicidad propias salvo que se activen expresamente en el futuro.
-      </p>
-      <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Técnicas</p>
-          <p class="mt-3 text-sm leading-7 text-white/64">Permiten que la web cargue, recuerde preferencias básicas y mantenga funciones esenciales.</p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Formulario</p>
-          <p class="mt-3 text-sm leading-7 text-white/64">El embed de {LEGAL.formProvider} puede usar tecnologías necesarias para mostrar y proteger el formulario.</p>
-        </article>
-        <article class="soft-card rounded-[1.35rem] p-5">
-          <p class="eyebrow">Enlaces externos</p>
-          <p class="mt-3 text-sm leading-7 text-white/64">WhatsApp, Instagram y TikTok son enlaces externos; sus políticas se aplican cuando sales de la web.</p>
-        </article>
+  <section class="section-hero">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+      <div class="flow" data-reveal>
+        <p class="eyebrow">Cookies</p>
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+          Solo lo necesario
+        </div>
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.5rem,5vw,5.6rem)]">
+          Solo lo necesario, y con el formulario de {LEGAL.formProvider} como parte del servicio.
+        </h1>
+        <p class="max-w-3xl text-sm leading-7 text-[color:var(--muted)] sm:text-base">
+          La versión actual del sitio se apoya en cookies técnicas y en las tecnologías necesarias para mostrar el formulario de contacto. No cargamos cookies de publicidad propias salvo que se activen expresamente en el futuro.
+        </p>
+      </div>
+      <div class="panel-soft rounded-[2rem] p-7" data-reveal>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5 md:col-span-2">
+            <p class="eyebrow">Técnicas</p>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">Permiten que la web cargue, recuerde preferencias básicas y mantenga funciones esenciales.</p>
+          </article>
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+            <p class="eyebrow">Formulario</p>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">El formulario de {LEGAL.formProvider} puede usar tecnologías necesarias para mostrar y proteger el servicio.</p>
+          </article>
+          <article class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5 md:col-span-2">
+            <p class="eyebrow">Enlaces externos</p>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">WhatsApp, Instagram y TikTok son enlaces externos; sus políticas se aplican cuando sales de la web.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-2">
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">1. Qué usamos ahora</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
           <li>Cookies técnicas para el funcionamiento general del sitio.</li>
-          <li>Tecnologías del formulario embebido de {LEGAL.formProvider}.</li>
+          <li>Tecnologías del formulario de {LEGAL.formProvider}.</li>
           <li>Posibles cookies de sesión cuando abres servicios de terceros desde enlaces externos.</li>
         </ul>
       </article>
-      <article class="soft-card rounded-[2rem] p-8">
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">2. Qué no hacemos</p>
-        <ul class="mt-5 space-y-3 text-sm leading-7 text-white/68">
+        <ul class="mt-5 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
           <li>No cargamos banners publicitarios invasivos.</li>
-          <li>No activamos analítica o píxeles de marketing por defecto en esta versión.</li>
+          <li>No activamos analítica o publicidad por defecto en esta versión.</li>
           <li>No usamos el enlace de WhatsApp para colocar cookies dentro de la web; solo abre el servicio externo.</li>
         </ul>
       </article>
@@ -56,14 +66,14 @@ import { SITE } from '@/data/site';
   </section>
 
   <section class="section">
-    <div class="glass rounded-[2rem] p-8">
+    <div class="panel rounded-[2rem] p-8" data-reveal>
       <p class="eyebrow">3. Cómo gestionarlas</p>
-      <h2 class="mt-3 text-3xl text-white">Puedes decidir desde tu navegador</h2>
-      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
-        Puedes borrar, bloquear o limitar las cookies desde los ajustes de tu navegador. Si bloqueas las cookies esenciales, alguna parte de la web o del formulario embebido puede no funcionar correctamente.
+      <h2 class="mt-3 text-3xl text-[color:var(--text)]">Puedes decidir desde tu navegador</h2>
+      <p class="mt-4 max-w-3xl text-sm leading-7 text-[color:var(--muted)]">
+        Puedes borrar, bloquear o limitar las cookies desde los ajustes de tu navegador. Si bloqueas las cookies esenciales, alguna parte de la web o del formulario de contacto puede no funcionar correctamente.
       </p>
-      <p class="mt-4 max-w-3xl text-sm leading-7 text-white/68">
-        Si necesitas ayuda con cualquier duda sobre privacidad o cookies, escríbenos a <a class="underline decoration-white/20 underline-offset-4" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> o por <a class="underline decoration-white/20 underline-offset-4" href={SITE.whatsappUrl}>WhatsApp</a>.
+      <p class="mt-4 max-w-3xl text-sm leading-7 text-[color:var(--muted)]">
+        Si necesitas ayuda con cualquier duda sobre privacidad o cookies, escríbenos a <a class="link-soft" href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a> o por <a class="link-soft" href={SITE.whatsappUrl}>WhatsApp</a>.
       </p>
     </div>
   </section>
