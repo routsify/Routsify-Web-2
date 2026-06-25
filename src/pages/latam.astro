@@ -96,9 +96,9 @@ const jsonLd = {
         ['Soporte digital', 'Mapa, documentos, reservas, itinerario y recomendaciones organizadas en un mismo espacio.'],
         ['Lenguaje claro', 'Explicamos el viaje de forma sencilla para que el cliente vea el plan completo y no solo una lista de hoteles.']
       ].map(([title, copy]) => (
-        <article class="soft-card rounded-[1.5rem] p-6">
-          <h3 class="text-2xl text-white">{title}</h3>
-          <p class="mt-3 text-sm leading-7 text-white/64">{copy}</p>
+        <article class="panel-soft lift-hover rounded-[1.5rem] p-6" data-reveal>
+          <h3 class="text-2xl text-[color:var(--text)]">{title}</h3>
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{copy}</p>
         </article>
       ))}
     </div>
@@ -106,41 +106,47 @@ const jsonLd = {
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-      <div class="glass rounded-[2rem] p-8">
+      <div class="panel rounded-[2rem] p-8" data-reveal>
         <SectionHeading
-          eyebrow="Destinos favoritos"
-          title="Europa como puerta de entrada, con Marruecos y Egipto como grandes extensiones"
+          eyebrow="Destinos"
+          title="Europa, Marruecos y Egipto siguen siendo el corazón de la propuesta"
           copy="La landing refuerza la combinación de destinos que mejor entiende el cliente internacional."
         />
         <div class="mt-8 space-y-4">
           {DESTINATIONS.map((item) => (
-            <article class="rounded-[1.4rem] border border-white/10 bg-white/5 p-5">
-              <h3 class="text-xl text-white">{item.name}</h3>
-              <p class="mt-2 text-sm leading-7 text-white/64">{item.detail}</p>
+            <article class="rounded-[1.4rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+              <h3 class="text-xl text-[color:var(--text)]">{item.name}</h3>
+              <p class="mt-2 text-sm leading-7 text-[color:var(--muted)]">{item.detail}</p>
             </article>
           ))}
         </div>
       </div>
 
-      <div class="space-y-4">
-        <article class="soft-card rounded-[2rem] p-7">
-          <p class="eyebrow">Casos tipo</p>
-          <div class="mt-5 grid gap-4">
-            {CASES.map((item) => (
-              <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-4">
-                <h3 class="text-xl text-white">{item.title}</h3>
-                <p class="mt-2 text-sm leading-7 text-white/64">{item.summary}</p>
+      <div class="grid gap-4">
+        <article class="panel-dark rounded-[2rem] p-7" data-reveal>
+          <p class="eyebrow text-white/68">Casos tipo</p>
+          <div class="mt-5 grid gap-3">
+            {[
+              'Familia desde Colombia con ruta clara, ritmos realistas y soporte.',
+              'Pareja desde México con un viaje equilibrado y visualmente bien resuelto.',
+              'Multicountry en Europa con lógica y sin improvisación.'
+            ].map((item) => (
+              <div class="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-7 text-white/74">
+                {item}
               </div>
             ))}
           </div>
         </article>
 
-        <article class="soft-card rounded-[2rem] p-7">
-          <p class="eyebrow">Mensaje clave</p>
-          <h3 class="mt-3 text-3xl text-white">Especialistas en hacer fácil un viaje que empieza lejos</h3>
-          <p class="mt-3 text-sm leading-7 text-white/64">
-            El enfoque no es solo “te llevamos a Europa”, sino “te diseñamos un viaje desde tu país hasta el destino, con cada paso resuelto”.
-          </p>
+        <article class="panel-soft rounded-[2rem] p-7" data-reveal>
+          <p class="eyebrow">Confianza</p>
+          <div class="mt-5 grid gap-3">
+            {['Viajes personalizados con seguimiento humano', 'Contenido y testimonios verificados, sin promesas inventadas', 'Barcelona como contexto comercial y operativo', 'Formulario Fillout + WhatsApp como vías principales de contacto'].map((item) => (
+              <div class="rounded-[1.25rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] px-4 py-3 text-sm leading-7 text-[color:var(--muted)]">
+                {item}
+              </div>
+            ))}
+          </div>
         </article>
       </div>
     </div>
@@ -148,32 +154,32 @@ const jsonLd = {
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-      <div class="soft-card rounded-[2rem] p-8">
+      <article class="panel rounded-[2rem] p-8" data-reveal>
         <SectionHeading
-          eyebrow="Preguntas que resuelve esta landing"
+          eyebrow="FAQ"
           title="La intención de esta página es dar seguridad, contexto y un camino claro"
-          copy="No necesitamos gritar más alto. Necesitamos explicar mejor."
+          copy="Una landing que resuelve objeciones convierte mejor que una landing bonita pero vacía."
         />
         <div class="mt-8 space-y-3">
           {FAQS.map((item) => (
-            <details class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
-              <summary class="cursor-pointer text-lg text-white">{item.q}</summary>
-              <p class="mt-3 text-sm leading-7 text-white/64">{item.a}</p>
+            <details class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+              <summary class="cursor-pointer list-none text-lg text-[color:var(--text)]">{item.q}</summary>
+              <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.a}</p>
             </details>
           ))}
         </div>
-      </div>
-      <div class="glass rounded-[2rem] p-8">
+      </article>
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">CTA final</p>
-        <h2 class="mt-3 text-4xl text-white">Cuéntanos tu punto de partida y te ayudamos a aterrizar la ruta</h2>
-        <p class="mt-4 text-sm leading-7 text-white/68">
-          Si viajas desde Latinoamérica, la conversación inicial puede resolver muchísimas dudas: qué ruta conviene, cómo repartir días, qué destino encaja mejor y dónde merece la pena invertir más.
+        <h2 class="mt-3 text-4xl text-[color:var(--text)]">Cuéntanos tu punto de partida y te ayudamos a aterrizar la ruta</h2>
+        <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
+          Si viajas desde Latinoamérica, la conversación inicial puede resolver muchísimas dudas: qué ruta conviene, cómo repartir días y dónde merece la pena invertir más.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href={SITE.whatsappUrl} class="btn-primary">Escribir por WhatsApp</a>
           <a href="/ruta-personalizada/" class="btn-secondary">Ver producto principal</a>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </BaseLayout>
