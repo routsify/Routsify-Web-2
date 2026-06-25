@@ -18,47 +18,60 @@ import { SITE } from '@/data/site';
     <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
       <div class="flow">
         <p class="eyebrow">Contacto</p>
-        <h1 class="max-w-3xl text-4xl leading-[0.95] text-white sm:text-5xl lg:text-7xl">
-          Cuéntanos tu viaje y te diremos cuál es la mejor forma de diseñarlo.
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+          WhatsApp primero · Fillout si prefieres escribirlo todo
+        </div>
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.9rem,5.8vw,6rem)]">
+          Cuéntanos tu viaje y te diremos por dónde empezar.
         </h1>
-        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-          Este es el único formulario del sitio. Para cualquier otra consulta, escríbenos directamente por WhatsApp.
+        <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
+          Este es el formulario principal del sitio. Si prefieres una conversación directa, WhatsApp sigue siendo la vía más rápida.
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 pt-2">
           <a href={SITE.whatsappUrl} class="btn-primary">Escribir por WhatsApp</a>
         </div>
       </div>
 
-      <div class="glass-strong rounded-[2rem] p-7 shadow-glow">
+      <aside class="panel-soft rounded-[2rem] p-7" data-reveal>
         <p class="eyebrow">Datos directos</p>
-        <div class="mt-5 space-y-4 text-sm text-white/72">
-          <p><span class="text-white">WhatsApp:</span> <a class="underline decoration-white/20 underline-offset-4" href={SITE.whatsappUrl}>{SITE.whatsapp}</a></p>
-          <p><span class="text-white">Email administrativo:</span> {SITE.email}</p>
-          <p><span class="text-white">Dirección:</span> {SITE.address}</p>
+        <div class="mt-5 space-y-4 text-sm text-[color:var(--muted)]">
+          <p><span class="text-[color:var(--text)]">WhatsApp:</span> <a class="link-soft" href={SITE.whatsappUrl}>{SITE.whatsapp}</a></p>
+          <p><span class="text-[color:var(--text)]">Email administrativo:</span> {SITE.email}</p>
+          <p><span class="text-[color:var(--text)]">Dirección:</span> {SITE.address}</p>
         </div>
-      </div>
+        <div class="mt-6 rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+          <p class="eyebrow">Qué esperamos en tu mensaje</p>
+          <ul class="mt-4 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
+            <li>Destino o tipo de viaje.</li>
+            <li>Fechas aproximadas o flexibilidad.</li>
+            <li>Presupuesto orientativo.</li>
+            <li>Si viajas solo, en pareja o en grupo.</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
 
   <section class="section">
-    <div class="glass rounded-[2rem] p-4 sm:p-6 lg:p-8">
+    <div class="panel rounded-[2rem] p-4 sm:p-6 lg:p-8">
       <SectionHeading
         eyebrow="Formulario Fillout"
-        title="Completa el formulario incrustado y seguimos por WhatsApp"
-        copy="El embed permite mantener el flujo de captación limpio sin depender de un backend propio."
+        title="Completa el formulario embebido y seguimos por WhatsApp"
+        copy="El embed mantiene el flujo de captación limpio sin depender de un backend propio."
       />
-      <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10 bg-white">
+      <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-[rgba(35,44,34,0.08)] bg-white">
         <iframe
           title="Formulario de contacto Routsify"
           src="https://routsify.fillout.com/t/itUeh5jZBXus"
-          class="h-[1100px] w-full border-0"
+          class="h-[1180px] w-full border-0 md:h-[1260px]"
           loading="lazy"
           allow="clipboard-read; clipboard-write"
         ></iframe>
       </div>
       <div class="mt-6 flex flex-wrap items-center gap-3">
         <a href={SITE.whatsappUrl} class="btn-primary">O hablar por WhatsApp</a>
-        <span class="text-sm text-white/55">Si el embed no carga, usa el enlace de WhatsApp.</span>
+        <span class="text-sm text-[color:var(--muted)]">Si el embed no carga, usa el enlace de WhatsApp.</span>
       </div>
     </div>
   </section>
