@@ -219,6 +219,8 @@ svg {
   bottom: 0.5rem;
   width: 1px;
   background: linear-gradient(180deg, rgba(73, 104, 75, 0.2), rgba(73, 104, 75, 0.72), rgba(73, 104, 75, 0.16));
+  background-size: 100% 200%;
+  animation: route-flow 6s ease-in-out infinite;
 }
 
 .route-dot {
@@ -240,9 +242,15 @@ svg {
   box-shadow: 0 10px 24px rgba(73, 104, 75, 0.16);
 }
 
+html.js .route-dot.is-visible::before {
+  animation: route-pulse 3.6s ease-in-out infinite;
+}
+
 .btn-primary,
 .btn-secondary,
 .btn-ghost {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -300,6 +308,26 @@ svg {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.btn-primary::after,
+.btn-secondary::after,
+.btn-ghost::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 28%, rgba(255, 255, 255, 0.22) 48%, transparent 68%);
+  transform: translateX(-120%);
+  transition: transform 650ms var(--ease-out-expo);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover::after,
+  .btn-secondary:hover::after,
+  .btn-ghost:hover::after {
+    transform: translateX(120%);
+  }
+}
+
 .link-soft {
   text-decoration: underline;
   text-decoration-color: rgba(35, 44, 34, 0.18);
@@ -317,4 +345,126 @@ svg {
 
 .flow > * + * {
   margin-top: 1rem;
+}
+
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  filter: blur(4px);
+  will-change: opacity, transform, filter;
+  transition:
+    opacity 750ms var(--ease-out-expo),
+    transform 750ms var(--ease-out-expo),
+    filter 750ms var(--ease-out-expo);
+}
+
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+[data-stagger] > * {
+  transition-delay: calc(var(--delay, 0) * 60ms);
+}
+
+.shine {
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.28) 50%, transparent 80%);
+  background-size: 240% 100%;
+}
+
+.shimmer {
+  animation: shimmer 12s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 240% 50%;
+  }
+}
+
+@keyframes route-flow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+
+@keyframes route-pulse {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px rgba(73, 104, 75, 0.16);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(73, 104, 75, 0.05), 0 14px 28px rgba(73, 104, 75, 0.2);
+    transform: scale(1.03);
+  }
+}
+
+.prose-compact p + p,
+.prose-compact ul + p,
+.prose-compact p + ul {
+  margin-top: 1rem;
+}
+
+.fine-print {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lift-hover {
+    transition:
+      transform 180ms var(--ease-out-expo),
+      box-shadow 180ms var(--ease-out-expo),
+      border-color 180ms var(--ease-out-expo),
+      background-color 180ms var(--ease-out-expo);
+  }
+
+  .lift-hover:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .route-line::before,
+  .route-dot.is-visible::before,
+  .btn-primary::after,
+  .btn-secondary::after,
+  .btn-ghost::after {
+    animation: none !important;
+  }
 }
