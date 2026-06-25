@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
-import { CASES, DESTINATIONS, FAQS, SITE } from '@/data/site';
+import { DESTINATIONS, FAQS, SITE, TRUST_STATEMENTS } from '@/data/site';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -27,7 +27,7 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title="Viajes personalizados a Europa y todo el mundo desde España y Europa | Routsify"
+  title="Viajes personalizados desde España y Europa | Routsify"
   description="Viajes a medida desde España y Europa para escapadas, rutas largas, viajes de pareja, familias y experiencias internacionales personalizadas."
   canonical="/europa/"
   alternates={[
@@ -37,65 +37,54 @@ const jsonLd = {
   ]}
   jsonLd={jsonLd}
 >
-  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
-    <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-      <div class="flow">
-        <p class="eyebrow">Landing para España y Europa</p>
-        <div class="kicker inline-flex rounded-full px-4 py-2 text-sm font-semibold">
+  <section class="section-hero">
+    <div class="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+      <div class="flow" data-reveal>
+        <p class="eyebrow">España y Europa</p>
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
           Especializados en Europa, Marruecos y Egipto
         </div>
-        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
-          Viajes personalizados a Europa y todo el mundo.
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.9rem,5.8vw,6rem)]">
+          Viajes personalizados a Europa y destinos internacionales para quien quiere que el plan salga bien.
         </h1>
-        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-          Si vives en España o en cualquier país de Europa, diseñamos tu próximo viaje a medida dentro o fuera del continente. Hacemos que una escapada, un viaje largo, una luna de miel o una ruta en familia se sientan bien pensados desde el principio.
+        <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
+          Si vives en España o en cualquier país de Europa, diseñamos tu próximo viaje a medida dentro o fuera del continente. Hacemos que una escapada, un viaje largo o una ruta en familia se sientan bien pensados desde el principio.
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 pt-2">
           <a href={SITE.whatsappUrl} class="btn-primary">Hablar por WhatsApp</a>
           <a href="/ruta-personalizada/" class="btn-secondary">Ver servicio</a>
         </div>
       </div>
 
-      <div class="glass-strong rounded-[2rem] p-6 shadow-glow">
-        <div class="grid gap-4 sm:grid-cols-2">
-          <article class="soft-card rounded-[1.5rem] p-5 sm:col-span-2">
-            <p class="eyebrow">Lo que buscas ahorrar</p>
-            <h2 class="mt-3 text-2xl text-white">Tiempo, dudas y malas decisiones de ruta</h2>
-            <div class="mt-4 grid gap-3 sm:grid-cols-2">
-              {['Escapadas', 'Viajes largos', 'Parejas', 'Familias', 'Grupos', 'Experiencias a medida'].map((item) => (
-                <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/72">{item}</span>
-              ))}
-            </div>
-          </article>
-          <article class="soft-card rounded-[1.35rem] p-5">
-            <p class="text-sm text-white/45">01</p>
-            <p class="mt-2 text-xl text-white">Diseño experto</p>
-          </article>
-          <article class="soft-card rounded-[1.35rem] p-5">
-            <p class="text-sm text-white/45">02</p>
-            <p class="mt-2 text-xl text-white">Viajes diferentes</p>
-          </article>
+      <aside class="panel-dark rounded-[2rem] p-7" data-reveal>
+        <p class="eyebrow text-white/68">Lo que buscas ahorrar</p>
+        <h2 class="mt-3 text-3xl text-white">Tiempo, dudas y malas decisiones de ruta</h2>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          {['Escapadas', 'Viajes largos', 'Parejas', 'Familias', 'Grupos', 'Experiencias a medida'].map((item) => (
+            <span class="rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-white/74">{item}</span>
+          ))}
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
   <section class="section">
     <SectionHeading
       eyebrow="Qué cambia aquí"
-      title="La landing habla de comodidad, ahorro de tiempo y diseño experto"
-      copy="No necesitas explicarle al cliente europeo que le llevas “desde Latinoamérica”. Lo que necesita oír es que su próximo viaje se va a construir bien."
+      title="La página habla de comodidad, ahorro de tiempo y diseño experto"
+      copy="Lo que necesita oír el usuario europeo es que su próximo viaje se va a construir bien."
     />
-    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3" data-stagger>
       {[
         ['Escapadas y city breaks', 'Propuestas ágiles y bien resueltas para aprovechar pocos días sin caer en lo genérico.'],
-        ['Viajes largos', 'Cuando hay tiempo, el itinerario se construye para que cada etapa tenga sentido y no se convierta en un collage sin lógica.'],
+        ['Viajes largos', 'Cuando hay tiempo, el itinerario se construye para que cada etapa tenga sentido.'],
         ['Parejas y familias', 'Rutas con equilibrio entre ritmo, descanso, experiencias y momentos memorables.'],
         ['Múltiples destinos', 'Europa combinada con Marruecos o Egipto cuando el viaje lo pide.'],
         ['Presupuesto optimizado', 'Proponemos la mejor forma de usar el dinero sin sacrificar el valor del viaje.'],
         ['Experiencia premium', 'Un servicio serio, cercano y elegante, sin hablar como una agencia clásica de catálogo.']
-      ].map(([title, copy]) => (
-        <article class="panel-soft lift-hover rounded-[1.5rem] p-6" data-reveal>
+      ].map(([title, copy], index) => (
+        <article class="panel-soft lift-hover rounded-[1.5rem] p-6" data-reveal style={`--delay:${index}`}>
           <h3 class="text-2xl text-[color:var(--text)]">{title}</h3>
           <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{copy}</p>
         </article>
@@ -107,7 +96,7 @@ const jsonLd = {
     <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       <div class="panel rounded-[2rem] p-8" data-reveal>
         <SectionHeading
-          eyebrow="Destinos clave"
+          eyebrow="Destinos"
           title="Europa, Marruecos y Egipto siguen siendo el corazón de la propuesta"
           copy="Y a partir de ahí puedes abrir la puerta a más destinos internacionales."
         />
@@ -121,25 +110,31 @@ const jsonLd = {
         </div>
       </div>
 
-      <div class="space-y-4">
-        <article class="panel-soft rounded-[2rem] p-7">
+      <div class="grid gap-4">
+        <article class="panel-soft rounded-[2rem] p-7" data-reveal>
           <p class="eyebrow">Casos tipo</p>
-          <div class="mt-5 grid gap-4">
-            {CASES.map((item) => (
-              <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-4">
-                <h3 class="text-xl text-white">{item.title}</h3>
-                <p class="mt-2 text-sm leading-7 text-white/64">{item.summary}</p>
+          <div class="mt-5 grid gap-3">
+            {[
+              'Escapada de 10 días por Europa con buen uso del presupuesto.',
+              'Pareja que quiere combinar ciudad, descanso y una ruta bien pensada.',
+              'Viaje familiar con equilibrio entre ritmo, logística y disfrute.'
+            ].map((item) => (
+              <div class="rounded-[1.25rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] px-4 py-3 text-sm leading-7 text-[color:var(--muted)]">
+                {item}
               </div>
             ))}
           </div>
         </article>
 
-        <article class="soft-card rounded-[2rem] p-7">
-          <p class="eyebrow">Mensaje clave</p>
-          <h3 class="mt-3 text-3xl text-white">Diseñamos tu próximo viaje, no solo una lista de reservas</h3>
-          <p class="mt-3 text-sm leading-7 text-white/64">
-            El valor diferencial está en la ruta: orden, lógica, belleza y la sensación de que el viaje fue pensado para ti, no tomado de un catálogo.
-          </p>
+        <article class="panel-dark rounded-[2rem] p-7" data-reveal>
+          <p class="eyebrow text-white/68">Confianza</p>
+          <div class="mt-5 grid gap-3">
+            {TRUST_STATEMENTS.map((item) => (
+              <div class="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-7 text-white/74">
+                {item}
+              </div>
+            ))}
+          </div>
         </article>
       </div>
     </div>
@@ -147,32 +142,32 @@ const jsonLd = {
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-      <div class="soft-card rounded-[2rem] p-8">
+      <article class="panel rounded-[2rem] p-8" data-reveal>
         <SectionHeading
           eyebrow="Preguntas frecuentes"
           title="Las dudas habituales también se responden aquí"
-          copy="Una landing que resuelve objeciones convierte mejor que una landing bonita pero vacía."
+          copy="Una página que resuelve objeciones convierte mejor que una página bonita pero vacía."
         />
         <div class="mt-8 space-y-3">
           {FAQS.map((item) => (
-            <details class="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
-              <summary class="cursor-pointer text-lg text-white">{item.q}</summary>
-              <p class="mt-3 text-sm leading-7 text-white/64">{item.a}</p>
+            <details class="rounded-[1.35rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] p-5">
+              <summary class="cursor-pointer list-none text-lg text-[color:var(--text)]">{item.q}</summary>
+              <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.a}</p>
             </details>
           ))}
         </div>
-      </div>
-      <div class="glass rounded-[2rem] p-8">
+      </article>
+      <article class="panel-soft rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">CTA final</p>
-        <h2 class="mt-3 text-4xl text-white">Cuéntanos el viaje que tienes en mente y lo aterrizamos contigo</h2>
-        <p class="mt-4 text-sm leading-7 text-white/68">
-          Si vives en España o en Europa, la conversación se centra en ritmo, tiempos, destinos combinados, escapadas, viajes largos o experiencias más especiales.
+        <h2 class="mt-3 text-4xl text-[color:var(--text)]">Cuéntanos el viaje que tienes en mente y lo ordenamos contigo</h2>
+        <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
+          Si vives en España o en Europa, la conversación se centra en ritmo, tiempos, destinos combinados, escapadas o viajes largos.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href={SITE.whatsappUrl} class="btn-primary">Pedir propuesta por WhatsApp</a>
           <a href="/guias/" class="btn-secondary">Ver guías económicas</a>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </BaseLayout>
