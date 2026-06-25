@@ -8,15 +8,16 @@ const links = [
 <section class="section-tight">
   <div
     id="geo-suggest"
-    class="glass hidden rounded-[2rem] px-5 py-5 shadow-glow sm:px-6"
+    class="panel-strong hidden rounded-[2rem] px-5 py-5 sm:px-6"
     data-latam-href="/latam/"
     data-europa-href="/europa/"
+    data-reveal
   >
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="max-w-2xl">
         <p class="eyebrow">Selector inteligente</p>
-        <h2 class="mt-3 text-2xl text-white">Parece que podrías encajar mejor en una de estas dos landings</h2>
-        <p id="geo-copy" class="mt-3 text-sm leading-7 text-white/68">
+        <h2 class="mt-3 text-2xl text-[color:var(--text)] sm:text-3xl">Parece que te encaja mejor una de estas dos puertas de entrada</h2>
+        <p id="geo-copy" class="mt-3 text-sm leading-7 text-[color:var(--muted)]">
           Te proponemos la versión más útil según tu idioma o zona horaria, pero puedes cambiarla cuando quieras.
         </p>
       </div>
@@ -26,36 +27,36 @@ const links = [
         ))}
       </div>
     </div>
-  </div>
 
-  <script is:inline>
-    (() => {
-      const el = document.getElementById('geo-suggest');
-      if (!el) return;
-      const dismissed = localStorage.getItem('routsify-landing-dismissed');
-      if (dismissed === '1') return;
+    <script is:inline>
+      (() => {
+        const el = document.getElementById('geo-suggest');
+        if (!el) return;
+        const dismissed = localStorage.getItem('routsify-landing-dismissed');
+        if (dismissed === '1') return;
 
-      const lang = (navigator.language || '').toLowerCase();
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-      const latamMatch =
-        lang.includes('es-419') ||
-        /^(es|pt)-/.test(lang) && !lang.includes('es-es') ||
-        timezone.startsWith('America/');
-      const europaMatch = lang.includes('es-es') || timezone.startsWith('Europe/');
-      const copy = document.getElementById('geo-copy');
+        const lang = (navigator.language || '').toLowerCase();
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const latamMatch =
+          lang.includes('es-419') ||
+          (/^(es|pt)-/.test(lang) && !lang.includes('es-es')) ||
+          timezone.startsWith('America/');
+        const europaMatch = lang.includes('es-es') || timezone.startsWith('Europe/');
+        const copy = document.getElementById('geo-copy');
 
-      if (latamMatch || europaMatch) {
-        el.classList.remove('hidden');
-        if (copy) {
-          copy.textContent = latamMatch
-            ? 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para LatAm y otros continentes.'
-            : 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para España y Europa.';
+        if (latamMatch || europaMatch) {
+          el.classList.remove('hidden');
+          if (copy) {
+            copy.textContent = latamMatch
+              ? 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para LatAm y otros continentes.'
+              : 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para España y Europa.';
+          }
         }
-      }
 
-      el.querySelectorAll('a').forEach((anchor) => {
-        anchor.addEventListener('click', () => localStorage.setItem('routsify-landing-dismissed', '1'));
-      });
-    })();
-  </script>
+        el.querySelectorAll('a').forEach((anchor) => {
+          anchor.addEventListener('click', () => localStorage.setItem('routsify-landing-dismissed', '1'));
+        });
+      })();
+    </script>
+  </div>
 </section>
