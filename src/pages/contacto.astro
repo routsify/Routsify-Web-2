@@ -6,7 +6,7 @@ import { SITE } from '@/data/site';
 
 <BaseLayout
   title="Contacto | Routsify"
-  description="Contacto oficial de Routsify con formulario Fillout embebido y WhatsApp como canal principal."
+  description="Contacto oficial de Routsify con formulario Fillout embebido y WhatsApp como vías de contacto."
   canonical="/contacto/"
   alternates={[
     { hreflang: 'x-default', href: `${SITE.url}/` },
@@ -14,19 +14,19 @@ import { SITE } from '@/data/site';
     { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
   ]}
 >
-  <section class="section-tight pt-8 sm:pt-12 lg:pt-20">
-    <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-      <div class="flow">
+  <section class="section-hero">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+      <div class="flow" data-reveal>
         <p class="eyebrow">Contacto</p>
         <div class="kicker">
           <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
-          WhatsApp primero · Fillout si prefieres escribirlo todo
+          WhatsApp primero · Fillout si prefieres dejarlo por escrito
         </div>
         <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.9rem,5.8vw,6rem)]">
           Cuéntanos tu viaje y te diremos por dónde empezar.
         </h1>
         <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
-          Este es el formulario principal del sitio. Si prefieres una conversación directa, WhatsApp sigue siendo la vía más rápida.
+          Cada viaje empieza con una idea. Si nos cuentas destino, fechas y tipo de viaje, te orientamos por WhatsApp o con el formulario embebido.
         </p>
         <div class="flex flex-wrap gap-3 pt-2">
           <a href={SITE.whatsappUrl} class="btn-primary">Escribir por WhatsApp</a>
@@ -58,7 +58,7 @@ import { SITE } from '@/data/site';
       <SectionHeading
         eyebrow="Formulario Fillout"
         title="Completa el formulario embebido y seguimos por WhatsApp"
-        copy="El embed mantiene el flujo de captación limpio sin depender de un backend propio."
+        copy="Si prefieres escribirlo con calma, el formulario recoge lo necesario para darte una primera orientación."
       />
       <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-[rgba(35,44,34,0.08)] bg-white">
         <iframe
