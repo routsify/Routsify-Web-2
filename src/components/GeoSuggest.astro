@@ -15,10 +15,10 @@ const links = [
   >
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="max-w-2xl">
-        <p class="eyebrow">Selector inteligente</p>
-        <h2 class="mt-3 text-2xl text-[color:var(--text)] sm:text-3xl">Parece que te encaja mejor una de estas dos puertas de entrada</h2>
+        <p class="eyebrow">Punto de partida</p>
+        <h2 class="mt-3 text-2xl text-[color:var(--text)] sm:text-3xl">Parece que te encaja mejor una de estas dos rutas de entrada</h2>
         <p id="geo-copy" class="mt-3 text-sm leading-7 text-[color:var(--muted)]">
-          Te proponemos la versión más útil según tu idioma o zona horaria, pero puedes cambiarla cuando quieras.
+          Te proponemos el camino más útil según tu idioma o zona horaria, pero puedes cambiarlo cuando quieras.
         </p>
       </div>
       <div class="flex flex-wrap gap-3">
@@ -32,7 +32,7 @@ const links = [
       (() => {
         const el = document.getElementById('geo-suggest');
         if (!el) return;
-        const dismissed = localStorage.getItem('routsify-landing-dismissed');
+        const dismissed = localStorage.getItem('routsify-route-choice-dismissed');
         if (dismissed === '1') return;
 
         const lang = (navigator.language || '').toLowerCase();
@@ -48,13 +48,13 @@ const links = [
           el.classList.remove('hidden');
           if (copy) {
             copy.textContent = latamMatch
-              ? 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para LatAm y otros continentes.'
-              : 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la landing para España y Europa.';
+              ? 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la ruta pensada para Latinoamérica y otros continentes.'
+              : 'Por tu idioma o zona horaria, quizá te resulte más útil empezar por la ruta pensada para España y Europa.';
           }
         }
 
         el.querySelectorAll('a').forEach((anchor) => {
-          anchor.addEventListener('click', () => localStorage.setItem('routsify-landing-dismissed', '1'));
+          anchor.addEventListener('click', () => localStorage.setItem('routsify-route-choice-dismissed', '1'));
         });
       })();
     </script>
