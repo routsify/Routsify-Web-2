@@ -14,54 +14,60 @@ import { PRICE, SITE } from '@/data/site';
     { hreflang: 'es-ES', href: `${SITE.url}/europa/` }
   ]}
 >
-  <section class="section-tight pt-12 sm:pt-16 lg:pt-22">
-    <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-      <div class="flow">
-        <p class="eyebrow">Entrada económica</p>
-        <h1 class="max-w-3xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+  <section class="section-hero">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+      <div class="flow" data-reveal>
+        <p class="eyebrow">Complemento útil</p>
+        <div class="kicker">
+          <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]"></span>
+          Recomendaciones útiles por destino
+        </div>
+        <h1 class="max-w-4xl text-balance text-5xl leading-[0.94] text-[color:var(--text)] sm:text-6xl lg:text-[clamp(3.9rem,5.8vw,6rem)]">
           Guías digitales de recomendaciones por destino desde {PRICE.guidesFrom.toFixed(2).replace('.', ',')} €.
         </h1>
-        <p class="max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-          Una opción accesible para quien quiere organizarse por su cuenta, con una base mejor pensada que empezar desde cero.
+        <p class="max-w-2xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
+          Una opción accesible para quien quiere organizarse por su cuenta con una base mejor pensada que empezar desde cero.
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 pt-2">
           <a href={SITE.whatsappUrl} class="btn-primary">Pedir catálogo por WhatsApp</a>
-          <a href="/ruta-personalizada/" class="btn-secondary">Necesito algo más completo</a>
+          <a href="/ruta-personalizada/" class="btn-secondary">Quiero una ruta a medida</a>
         </div>
       </div>
 
-      <div class="glass-strong rounded-[2rem] p-7 shadow-glow">
+      <aside class="panel-soft rounded-[2rem] p-7" data-reveal>
         <p class="eyebrow">Qué resuelve</p>
-        <div class="mt-4 grid gap-4">
+        <div class="mt-5 grid gap-4">
           {[
             'Recomendaciones esenciales del destino',
             'Ahorro de tiempo en la investigación',
             'Idea clara de qué vale la pena priorizar',
-            'Puerta de entrada para vender después la ruta personalizada'
+            'Complemento para entender después la ruta personalizada'
           ].map((item) => (
-            <div class="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/72">{item}</div>
+            <div class="rounded-[1.2rem] border border-[rgba(35,44,34,0.08)] bg-[rgba(255,252,246,0.74)] px-4 py-3 text-sm text-[color:var(--muted)]">
+              {item}
+            </div>
           ))}
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
   <section class="section">
     <SectionHeading
-      eyebrow="Uso comercial"
-      title="La guía funciona como producto de entrada y como opción para usuarios más autosuficientes"
+      eyebrow="Uso práctico"
+      title="La guía funciona como una ayuda concreta para viajar mejor"
       copy="No compite con la ruta personalizada. La complementa."
     />
-    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3" data-stagger>
       {[
         ['Destinos concretos', 'Guías pensadas por ciudad o país, con un contenido útil y compacto.'],
         ['Precio bajo', 'Desde 2,99 € como umbral de entrada y prueba de marca.'],
         ['Menos fricción', 'Ideal para usuarios que todavía no quieren contratar una planificación completa.'],
         ['Más confianza', 'Quien compra una guía puede acabar entendiendo el valor del servicio principal.'],
         ['Mantenimiento simple', 'Constantes editables y estructura modular para añadir nuevos destinos.'],
-        ['Venta escalable', 'Producto digital fácil de mantener, sin base de datos ni procesos complejos.']
-      ].map(([title, copy]) => (
-        <article class="panel-soft rounded-[1.5rem] p-6">
+        ['Complemento comercial', 'Un recurso útil que puede abrir la puerta a la ruta personalizada cuando el viaje lo pide.']
+      ].map(([title, copy], index) => (
+        <article class="panel-soft lift-hover rounded-[1.5rem] p-6" data-reveal style={`--delay:${index}`}>
           <h3 class="text-2xl text-[color:var(--text)]">{title}</h3>
           <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{copy}</p>
         </article>
@@ -71,7 +77,7 @@ import { PRICE, SITE } from '@/data/site';
 
   <section class="section">
     <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-      <div class="panel rounded-[2rem] p-8">
+      <article class="panel rounded-[2rem] p-8" data-reveal>
         <p class="eyebrow">Precio visible</p>
         <div class="mt-4 flex items-end gap-3">
           <span class="text-6xl text-[color:var(--text)]">{PRICE.guidesFrom.toFixed(2).replace('.', ',')} €</span>
@@ -80,8 +86,8 @@ import { PRICE, SITE } from '@/data/site';
         <p class="mt-4 text-sm leading-7 text-[color:var(--muted)]">
           Si cambias el precio, hazlo en <code class="rounded bg-[rgba(35,44,34,0.06)] px-1.5 py-0.5 text-xs">{`PRICE.guidesFrom`}</code>.
         </p>
-      </div>
-      <div class="panel-dark rounded-[2rem] p-8">
+      </article>
+      <article class="panel-dark rounded-[2rem] p-8" data-reveal>
         <SectionHeading
           eyebrow="CTA"
           title="Si no necesitas la ruta completa, empieza por aquí"
@@ -91,7 +97,7 @@ import { PRICE, SITE } from '@/data/site';
           <a href={SITE.whatsappUrl} class="btn-primary">Quiero ver las guías por WhatsApp</a>
           <a href="/ruta-personalizada/" class="btn-secondary">Prefiero una ruta a medida</a>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </BaseLayout>
